@@ -1,0 +1,3 @@
+Comandos cmd
+-----------------
+Get-WmiObject --> para obtener informacion del SO https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-wmiobject?view=powershell-5.1
