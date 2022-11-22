@@ -1,6 +1,7 @@
 # Indice
 
 - [Information Gathering](#Information-Gathering)
+    - [Passive](#Passive)
     * [Website Recon & Footprinting](#Website-Recon-And-Footprinting)
     * [Whois Enumeration](#Whois-Enumeration)
     * [Netcraft](#Netcraft)
@@ -8,6 +9,8 @@
     * [WAF (web aplication firewall) Detection With wafw00f](#WAF-Detection-With-wafw00f)
     * [Subdomain Enumeration With Sublist3r](#Subdomain-Enumeration-With-Sublist3r)
     * [Google Dorks](#Google-Dorks)
+    * [Email Harvesting With theHarvester](#Email-Harvesting-With-theHarvester)
+    * [Leaked passwords databases](#Leaked-passwords-databases)
 
 
 # Information Gathering
@@ -43,6 +46,9 @@ Esta fase se divide en dos:
     - Informacion de la estructura interna 
     - Enumerar informacion de los sistemas objetivos
 --------------
+
+
+# Passive:
 
 ## Website Recon And Footprinting
 
@@ -179,6 +185,7 @@ Puede ser que algunos sitios no devuelvan subdominio porque nos esten bloqueando
 ----
 
 ### Google Dorks
+
 Google hacking
 
 Usaremos google y sus filtros para encontrar exactamente lo que buscamos. (Ficheros PDF de un dominio, informacion exacta, etc)
@@ -189,6 +196,34 @@ Ejemplos de uso:
 ```site:ine.com inurl:admin``` --> Devuelve todos los resultados anteriores que tengan "admin" en la URL.
 ```site:*.ine.com``` --> esto nos devuelve todos los subdominios de "ine.com"
 ```site:*.ine.com filetype:pdf``` --> esto nos devuelve los ficheros pdf que encuentre en los subdominios de "ine.com"
+
+Otros ejemplos de busqueda:
+
+```https://www.exploit-db.com/google-hacking-database```
+
+- Waybackmachine.com --> para ver como eran antiguamente las paginas.
+
+Aveces visitando versiones antiguas de una web podemos encontrar informacion sensible que han eliminado posteriormente.
+
+----
+
+### Email Harvesting With theHarvester 
+
+theHarvester es una herramienta que usaremos para enumerar emails de un dominio en concreto.
+
+Es una herramienta opensource y la podemos conseguir en el siguiente repositorio:
+
+```https://github.com/laramies/theHarvester```
+
+(Tambien viene pre-empaquetada con Kali)
+
+Ejemplo de uso: 
+
+```theHarvester -d hackersploit.org -b google, linkedin, yahoo, dnsdumpster, duckduckgo, crtsh```
+en esta prueba no hemos encontrado emails pero en la siguiente si:
+```theHarvester -d zonetransfer.me -b google, linkedin, yahoo, dnsdumpster, duckduckgo, crtsh```
+
+### Leaked passwords databases
 
 
 
