@@ -6,6 +6,7 @@
     * [Netcraft](#Netcraft)
     * [DNS Recon](#DNS-Recon)
     * [WAF (web aplication firewall) Detection With wafw00f](#WAF-Detection-With-wafw00f)
+    * [Subdomain Enumeration With Sublist3r](#Subdomain-Enumeration-With-Sublist3r)
 
 
 # Information Gathering
@@ -137,6 +138,19 @@ Otra buena opcion para obtener informacion DNS de un dominio es la web https://d
 ### WAF-Detection-With-wafw00f
 WAF(web aplication firewall)
 
+Es una aplicacion que nos ayudará a detectar si hay un aplicacion de firewall web en una pagina web.
+
+```https://github.com/EnableSecurity/wafw00f```
+
+Viene precompilado con Kali.
+
+Ejemplo de uso:
+
+```wafw00f hackersploit.org``` --> para en cuando detecta uno.
+
+```wafw00f hackersploit.org -a``` --> para que siga buscando si encuentra uno, por si hay mas.
+
+### Subdomain Enumeration With Sublist3r
 
 
 
