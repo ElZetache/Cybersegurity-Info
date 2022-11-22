@@ -1,6 +1,7 @@
 # Indice
 
 * [Information Gathering](#Information-Gathering)
+* [Website Recon & Footprinting](#Website-Recon-&-Footprinting)
 
 
 ## Information Gathering
@@ -35,6 +36,20 @@ Esta fase se divide en dos:
     - Puertos abiertos en los sistemas
     - Informacion de la estructura interna 
     - Enumerar informacion de los sistemas objetivos
+--------------
+
+## Website Recon & Footprinting
+
+En esta seccion revisaremos el proceso de obtener informacion pasiva de un sitio web.
+
+- Que buscaremos?
+    - Ip
+    - Directorios ocultos de los buscadores
+    - Nombres
+    - Cuentas de mail
+    - Numeros de telefono
+    - Direcciones fisicas
+    - Technologias web usadas
 
 
 
