@@ -1,7 +1,7 @@
 # Indice
 
 - [Information Gathering](#Information-Gathering)
-    * [Website Recon & Footprinting](#Website-Recon-&-Footprinting)
+    * [Website Recon & Footprinting](#Website-Recon-And-Footprinting)
     * [Whois Enumeration](#Whois-Enumeration)
     * [Netcraft](#Netcraft)
 
@@ -40,7 +40,7 @@ Esta fase se divide en dos:
     - Enumerar informacion de los sistemas objetivos
 --------------
 
-# Website Recon & Footprinting
+# Website Recon And Footprinting
 
 En esta seccion revisaremos el proceso de obtener informacion pasiva de un sitio web.
 
