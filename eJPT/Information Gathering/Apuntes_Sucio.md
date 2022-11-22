@@ -2,6 +2,7 @@
 
 * [Information Gathering](#Information-Gathering)
 * [Website Recon & Footprinting](#Website-Recon-&-Footprinting)
+* [Whois Enumeration](#Whois-Enumeration)
 
 
 # Information Gathering
@@ -54,8 +55,9 @@ En esta seccion revisaremos el proceso de obtener informacion pasiva de un sitio
 ### Obtener la ip:
 
 - Comando linux: 
-    - whatis host
-    - host 'url'
+    - ```whatis host```
+    - ```host 'url'```
+
 ### Directorios ocultos:
 
 Una manera de ver los dirrectorios ocultos de los buscadores podría ser intentando ver el fichero "robots.txt" que tienen algunas web.
@@ -63,6 +65,19 @@ Una manera de ver los dirrectorios ocultos de los buscadores podría ser intenta
 Por ejemplo en https://hackersploit.org/robots.txt .
 
 Otro fichero que podemos mirar es el "sitemap_index.xml" --> https://hackersploit.org/sitemap_index.xml .
+
+### Tecnologias web usadas:
+
+Hay diversas app que nos ayudarán en esta tares, por ejemplo hay un addon para firefox llamado BuildWith que nos puede decir que se esta usando en cualquier web.
+
+Tambien podemos usar "whatweb" que es una aplicacion incluida en la consola de Kali:
+
+```whatweb hackersploit.org```
+
+Con la app HTTrack podemos descargar una copia del codigo de la web para poderlo analizar.
+
+# Whois Enumeration
+
 
 
 
