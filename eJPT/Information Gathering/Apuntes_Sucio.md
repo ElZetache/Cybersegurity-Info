@@ -4,7 +4,7 @@
 * [Website Recon & Footprinting](#Website-Recon-&-Footprinting)
 
 
-## Information Gathering
+# Information Gathering
 - Alexis ahmed -- aahmed@ine.com twitter --> HackerSploit
 ----------------------------------------------------------
 
@@ -38,7 +38,7 @@ Esta fase se divide en dos:
     - Enumerar informacion de los sistemas objetivos
 --------------
 
-## Website Recon & Footprinting
+# Website Recon & Footprinting
 
 En esta seccion revisaremos el proceso de obtener informacion pasiva de un sitio web.
 
@@ -50,6 +50,19 @@ En esta seccion revisaremos el proceso de obtener informacion pasiva de un sitio
     - Numeros de telefono
     - Direcciones fisicas
     - Technologias web usadas
+
+### Obtener la ip:
+
+- Comando linux: 
+    - whatis host
+    - host 'url'
+### Directorios ocultos:
+
+Una manera de ver los dirrectorios ocultos de los buscadores podría ser intentando ver el fichero "robots.txt" que tienen algunas web.
+
+Por ejemplo en https://hackersploit.org/robots.txt .
+
+Otro fichero que podemos mirar es el "sitemap_index.xml" --> https://hackersploit.org/sitemap_index.xml .
 
 
 
