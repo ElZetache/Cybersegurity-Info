@@ -7,6 +7,7 @@
     * [DNS Recon](#DNS-Recon)
     * [WAF (web aplication firewall) Detection With wafw00f](#WAF-Detection-With-wafw00f)
     * [Subdomain Enumeration With Sublist3r](#Subdomain-Enumeration-With-Sublist3r)
+    * [Google Dorks](#Google-Dorks)
 
 
 # Information Gathering
@@ -150,7 +151,34 @@ Ejemplo de uso:
 
 ```wafw00f hackersploit.org -a``` --> para que siga buscando si encuentra uno, por si hay mas.
 
+---
+
 ### Subdomain Enumeration With Sublist3r
+
+Sublist3r es una herramienta opensource para enumerar subdominios. (es un script de Python)
+
+```https://github.com/aboul3la/Sublist3r```
+
+Esta herramienta usa los motores de busqueda para encontrar los dominios, tambien usa algunas herramientas para obtener mas informacion. Mas info en el github.
+
+Esta herramienta no viene preinstalada (en el repositorio hay instrucciones para instalarla)
+
+Tambien podemos especificar en que motores de busqueda queremos que haga la enumeracion.
+
+Ejemplo de uso:
+
+```sublist3r -d ine.com```
+```sublist3r -d zonetransfer.me```
+```sublist3r -d zonetransfer.me -e google,yahoo``` --> para buscar en google y yahoo
+```sublist3r -d hackersploit.org```
+```sublist3r -d hackersploit.org -e google,yahoo``` --> para buscar en google y yahoo
+
+
+Puede ser que algunos sitios no devuelvan subdominio porque nos esten bloqueando.
+
+### Google Dorks
+
+
 
 
 
