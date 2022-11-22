@@ -225,6 +225,13 @@ en esta prueba no hemos encontrado emails pero en la siguiente si:
 
 ### Leaked passwords databases
 
+Existen databases que estan publicas online y las podemos detectar de la siguiente manera:
+
+Web de interes:
+```https://haveibeenpwned.com```
+
+En esta web se guarda un registro de la informacion que ha sido vulnerada en algunos sitios web tipo Facebook, google, Twitter...
+
 
 
 
