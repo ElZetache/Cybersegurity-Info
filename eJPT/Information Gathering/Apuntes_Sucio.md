@@ -179,7 +179,16 @@ Puede ser que algunos sitios no devuelvan subdominio porque nos esten bloqueando
 ----
 
 ### Google Dorks
+Google hacking
 
+Usaremos google y sus filtros para encontrar exactamente lo que buscamos. (Ficheros PDF de un dominio, informacion exacta, etc)
+
+Ejemplos de uso:
+
+```site:ine.com``` --> Devuelve todos los resultados para el dominio "ine.com".
+```site:ine.com inurl:admin``` --> Devuelve todos los resultados anteriores que tengan "admin" en la URL.
+```site:*.ine.com``` --> esto nos devuelve todos los subdominios de "ine.com"
+```site:*.ine.com filetype:pdf``` --> esto nos devuelve los ficheros pdf que encuentre en los subdominios de "ine.com"
 
 
 
