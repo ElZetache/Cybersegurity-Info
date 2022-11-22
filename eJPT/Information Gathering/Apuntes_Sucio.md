@@ -4,6 +4,8 @@
     * [Website Recon & Footprinting](#Website-Recon-And-Footprinting)
     * [Whois Enumeration](#Whois-Enumeration)
     * [Netcraft](#Netcraft)
+    * [DNS Recon](#DNS-Recon)
+    * [WAF (web aplication firewall) Detection With wafw00f](#WAF-Detection-With-wafw00f)
 
 
 # Information Gathering
@@ -54,11 +56,15 @@ En esta seccion revisaremos el proceso de obtener informacion pasiva de un sitio
     - Technologias web usadas
     - ...
 
+---------
+
 ### Obtener la ip:
 
 - Comando linux: 
     - ```whatis host```
     - ```host 'url'```
+
+-----
 
 ### Directorios ocultos:
 
@@ -67,6 +73,8 @@ Una manera de ver los dirrectorios ocultos de los buscadores podría ser intenta
 Por ejemplo en https://hackersploit.org/robots.txt .
 
 Otro fichero que podemos mirar es el "sitemap_index.xml" --> https://hackersploit.org/sitemap_index.xml .
+
+----
 
 ### Tecnologias web usadas:
 
@@ -89,13 +97,45 @@ Comando Kali:
 
 Tambien existe la web https://who.is que hace la misma funcion que el whois.
 
+-------
+
 ### Netcraft
 
 Netcraft es una utilidad que nos ayuda a complementar la informacion que conseguimos con el whois.
 
+
 Con esta utilidad tambien podemos obtener informacion de los certificados SSL y TLS.
 
 Basicamente te hace un resumen de toda la informacion que puede obtener de una URL muy bien organizada.
+
+-----
+
+### DNS Recon
+
+Es un script de Python que chekea todos los registros NS, dandonos los datos registrados en un DNS de un dominion especifico, algunos de estos registros son:
+
+- Registros de DNS:
+    - MX --> mail adress
+    - SOA
+    - NS
+    - A --> registro ipv4
+    - AAAA --> registro ipv6
+    - SPF
+    - TXT
+
+Este script nos viene incluido en Kali, por lo que con este SO no necessitamos instalarlo.
+
+Ejemplo:
+
+```dnsrecon -d hackersploit.org```
+```dnsrecon -d zonetransfer.me```
+
+Otra buena opcion para obtener informacion DNS de un dominio es la web https://dnsdumpster.com
+
+----
+
+### WAF-Detection-With-wafw00f
+WAF(web aplication firewall)
 
 
 
