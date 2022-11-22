@@ -1,9 +1,9 @@
 # Indice
 
-* [Information Gathering](#Information-Gathering)
-* [Website Recon & Footprinting](#Website-Recon-&-Footprinting)
-* [Whois Enumeration](#Whois-Enumeration)
-* [Netcraft](#Netcraft)
+- [Information Gathering](#Information-Gathering)
+    * [Website Recon & Footprinting](#Website-Recon-&-Footprinting)
+    * [Whois Enumeration](#Whois-Enumeration)
+    * [Netcraft](#Netcraft)
 
 
 # Information Gathering
@@ -52,6 +52,7 @@ En esta seccion revisaremos el proceso de obtener informacion pasiva de un sitio
     - Numeros de telefono
     - Direcciones fisicas
     - Technologias web usadas
+    - ...
 
 ### Obtener la ip:
 
@@ -79,7 +80,7 @@ Con la app HTTrack podemos descargar una copia del codigo de la web para poderlo
 
 --------
 
-# Whois Enumeration
+### Whois Enumeration
 
 whois es un protocolo de internet que usaremos para obtener informacion de los servidores de un sitio web.
 
@@ -88,7 +89,15 @@ Comando Kali:
 
 Tambien existe la web https://who.is que hace la misma funcion que el whois.
 
-# Netcraft
+### Netcraft
+
+Netcraft es una utilidad que nos ayuda a complementar la informacion que conseguimos con el whois.
+
+Con esta utilidad tambien podemos obtener informacion de los certificados SSL y TLS.
+
+Basicamente te hace un resumen de toda la informacion que puede obtener de una URL muy bien organizada.
+
+
 
 
 
