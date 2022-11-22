@@ -3,6 +3,7 @@
 * [Information Gathering](#Information-Gathering)
 * [Website Recon & Footprinting](#Website-Recon-&-Footprinting)
 * [Whois Enumeration](#Whois-Enumeration)
+* [Netcraft](#Netcraft)
 
 
 # Information Gathering
@@ -76,7 +77,20 @@ Tambien podemos usar "whatweb" que es una aplicacion incluida en la consola de K
 
 Con la app HTTrack podemos descargar una copia del codigo de la web para poderlo analizar.
 
+--------
+
 # Whois Enumeration
+
+whois es un protocolo de internet que usaremos para obtener informacion de los servidores de un sitio web.
+
+Comando Kali:
+```whois hackersploit.org```
+
+Tambien existe la web https://who.is que hace la misma funcion que el whois.
+
+# Netcraft
+
+
 
 
 
