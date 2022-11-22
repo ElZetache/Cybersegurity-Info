@@ -223,6 +223,8 @@ Ejemplo de uso:
 en esta prueba no hemos encontrado emails pero en la siguiente si:
 ```theHarvester -d zonetransfer.me -b google, linkedin, yahoo, dnsdumpster, duckduckgo, crtsh```
 
+----
+
 ### Leaked passwords databases
 
 Existen databases que estan publicas online y las podemos detectar de la siguiente manera:
