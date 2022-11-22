@@ -2,15 +2,15 @@
 
 - [Information Gathering](#Information-Gathering)
     - [Passive](#Passive)
-    * [Website Recon & Footprinting](#Website-Recon-And-Footprinting)
-    * [Whois Enumeration](#Whois-Enumeration)
-    * [Netcraft](#Netcraft)
-    * [DNS Recon](#DNS-Recon)
-    * [WAF (web aplication firewall) Detection With wafw00f](#WAF-Detection-With-wafw00f)
-    * [Subdomain Enumeration With Sublist3r](#Subdomain-Enumeration-With-Sublist3r)
-    * [Google Dorks](#Google-Dorks)
-    * [Email Harvesting With theHarvester](#Email-Harvesting-With-theHarvester)
-    * [Leaked passwords databases](#Leaked-passwords-databases)
+        * [Website Recon & Footprinting](#Website-Recon-And-Footprinting)
+        * [Whois Enumeration](#Whois-Enumeration)
+        * [Netcraft](#Netcraft)
+        * [DNS Recon](#DNS-Recon)
+        * [WAF (web aplication firewall) Detection With wafw00f](#WAF-Detection-With-wafw00f)
+        * [Subdomain Enumeration With Sublist3r](#Subdomain-Enumeration-With-Sublist3r)
+        * [Google Dorks](#Google-Dorks)
+        * [Email Harvesting With theHarvester](#Email-Harvesting-With-theHarvester)
+        * [Leaked passwords databases](#Leaked-passwords-databases)
 
 
 # Information Gathering
