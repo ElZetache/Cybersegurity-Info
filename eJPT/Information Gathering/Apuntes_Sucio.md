@@ -13,12 +13,12 @@
 - Passive information gathering - Obtencion de la informacion publica accesible desde la red (google, redes...)
 - Active information gathering - Informacion que obtenemos accediendo a los sistemas del objetivo
 
-### Prerequisites
+## Prerequisites
 
 - Basic linux --> usaremos Kali Linux para este curso
 - Basci web technologies
 
-### Introduction
+## Introduction
 
 Information Gathering es la primera fase de un test de penetracion, aqui recopilamos informacion de los sitemas a los cuales vamos a hacer el pentesting.
 Este conocimiento nos ayudará en las siguientes fases y cuanto mas sepamos de nuestro objetivo mas facil nos será acceder.
@@ -40,7 +40,7 @@ Esta fase se divide en dos:
     - Enumerar informacion de los sistemas objetivos
 --------------
 
-# Website Recon And Footprinting
+## Website Recon And Footprinting
 
 En esta seccion revisaremos el proceso de obtener informacion pasiva de un sitio web.
 
