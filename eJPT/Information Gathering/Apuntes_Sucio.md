@@ -13,7 +13,8 @@
         * [Leaked passwords databases](#Leaked-passwords-databases)
     - [Active](#Active)
         * [DNS Zone Transfers](#DNS-Zone-Transfers)
-        * [Host Discovery with Nmap](#Host-Discovery-with-Nmap)
+        * [Host Discovery With Nmap](#Host-Discovery-With-Nmap)
+        * [Port Scanning With Nmap](#Port-Scanning-With-Nmap)
 
 # Information Gathering
 - Alexis ahmed -- aahmed@ine.com twitter --> HackerSploit
@@ -283,20 +284,85 @@ Otra herramienta que podemos usar para sacar informacion de un dominio es:
 ```fierce --domain hackersploit.org```
 
 
-```Como dato, los SO tienen un fichero donde guardan algunos hosts localmente en linux esta en /etc/hosts, estos registros los cogera sin consultar el servidor y podemos añadir los que queramos```
+*Como dato, los SO tienen un fichero donde guardan algunos hosts localmente en linux esta en /etc/hosts, estos registros los cogera sin consultar el servidor y podemos añadir los que queramos*
 
 ---
 
-## Host Discovery with Nmap
+## Host Discovery With Nmap
+
+Podemos usar el siguiente comando para buscar un host:
+
+`nmap -sn 192.168.0.0/24` --> -sn es para que solo nos muestre los hosts sin escanear los puertos.
+En la IP tenemos que poner la de red.
+
+![nmap-sn](img/nmap-sn.png)
+
+Otro comando que podemos usar es:
+
+`netdiscover 192.168.0.0/24 -i eth0 -r 192.168.0.0/24` --> "-i" especificamos por que interficie queremos buscar, "-r" que rango de ip buscamos.
+
+![netdiscover](img/netdiscover.png)
+
+---
+## Port Scanning With Nmap
+### LAB
+
+Si hacemos un nmap basico solo escaneará los puertos habitualmente usados.
+
+`nmap "ip"`
+
+Hay que tener cuidado cuando escaneamos sistemas windows porque suelen bloquear los ping, por lo que nos puede devolver un error como el siguiente:
+
+![nmapport1](img/nmap-port-1.png)
+
+Con el atributo "-Pn" le decimos que no haga pings, asi evitamos el error:
+
+![nmapport2](img/nmap-port-2.png)
+
+Por los servicios que vemos activos en los puertos podemos comprobar que este es un host windows, y que ademas tiene un servicio http abierto.
+
+Para verificarlo podemos ir a un navegador y probar de navegar.
+
+Podemos ver que esta accesible un file server:
+
+![nmapport3](img/nmap-port-3.png)
 
 
 
+`nmap -Pn -p- 10.2.18.122` --> Con este comando escanería todos los puertos, no lo ejecutaremos porque nos llevaría demasiado tiempo.
+
+`nmap -Pn -p80 10.2.18.122` --> Tambien podemos especificar el puerto que queremos escanear.
+
+![nmapport4](img/nmap-port-4.png)
 
 
+`nmap -Pn -p 80,445,3389 10.2.18.122` --> Tambien podemos buscar varios puertos
 
+`nmap -Pn -p 1-1000 10.2.18.122` --> Tambien podemos especificar un rango.
 
+Nmap normalmente solo escanea los puertos TCP, para mirar los UDP debemos especificarlo:
 
+`nmap -Pn -sU 10.2.18.122`
 
+![nmapport5](img/nmap-port-5.png)
+
+Este comando puede tardar bastante.
+
+Tambien podemos saber la version del servicio con el siguiente comando:
+
+`nmap -Pn -F -sV 10.2.18.122`
+
+Esto nos puede ser util para buscar informacion de vulnerabilidades para el servicio y la version que esta corriendo en ese puerto.
+
+![nmapport6](img/nmap-port-6.png)
+
+Si añadimos el atributo "-O" nos dará tambien informacion mas detallada del sistema operativo.
+
+`nmap -Pn -F -sV -O 10.2.18.122`
+
+Podemos ver que nos dice que es un Windows Server 2012:
+
+![nmapport7](img/nmap-port-7.png)
 
 
 
