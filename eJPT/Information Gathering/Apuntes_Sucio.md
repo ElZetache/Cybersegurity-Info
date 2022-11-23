@@ -364,5 +364,15 @@ Podemos ver que nos dice que es un Windows Server 2012:
 
 ![nmapport7](img/nmap-port-7.png)
 
+Si añadimos "-sC" se ejecutarán una serie de scrips de Nmap que nos ayudarán a obtener mas informacion de los puertos abiertos:
+
+`nmap -Pn -F -sV -O -sC 10.2.18.122`
+
+En la imagen podemos ver que nos devuelve lo mismo que el anterior comando pero da un poco mas de detalle:
+
+![nmapport8](img/nmap-port-8.png)
 
 
+Para acabar mas rapido podemos hacer un nmap agresivo, que es lo mismo que el ultimo pero solo es necessario poner el atributo "-A".
+
+`nmap -Pn -F -A 10.2.18.122 `
