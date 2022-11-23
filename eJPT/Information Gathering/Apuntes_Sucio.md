@@ -11,7 +11,9 @@
         * [Google Dorks](#Google-Dorks)
         * [Email Harvesting With theHarvester](#Email-Harvesting-With-theHarvester)
         * [Leaked passwords databases](#Leaked-passwords-databases)
-
+    - [Active](#Active)
+        * [DNS Zone Transfers](#DNS-Zone-Transfers)
+        * [Host Discovery with Nmap](#Host-Discovery-with-Nmap)
 
 # Information Gathering
 - Alexis ahmed -- aahmed@ine.com twitter --> HackerSploit
@@ -233,6 +235,60 @@ Web de interes:
 ```https://haveibeenpwned.com```
 
 En esta web se guarda un registro de la informacion que ha sido vulnerada en algunos sitios web tipo Facebook, google, Twitter...
+
+---
+# Active
+
+## DNS Zone Transfers
+
+### Que es un DNS?
+
+Es un protocolo para transformar los nombres de dominio o de host en direcciones IP.
+
+```
+- DNS records:
+    - A : resuelve un nombre de dominio a ipv4
+    - AAAA : resuelve un nombre de dominio a ipv6
+    - NS : referencia al domain nameserver
+    - MX : resuelve el dominio de un servidor mail
+    - CNAME : domain alias
+    - TXT : text record
+    - HINFO : informacion del host
+    - SOA : domain authority
+    - SRV : service records
+    - PTR : transforma una IP a un hostname
+```
+### DNS Interrogation
+
+Es la enumeracion de los registrons de un DNS para obtener informacion valiosa como IP de dominio, subdominios, mail servers...
+
+### DNS Zone Transfer
+
+En algunas ocasiones los administradores quieren copiar ficheros de un DNS a otro, este proceso se llama DNS Zone Transfer.
+
+Si esto no se hace de forma correcta un atacante puede aprovechar para interceptar esta informacion que le puede servir para saber sobre la estructura del dominio y obtener informacion valiosa.
+
+Ejemplo de uso:
+
+```dnsrecon -d zonetransfer.me```
+```dnsenum zonetransfer.me```
+zonetransfer.me es un servidos preparado para hacer esta prueba.
+
+Una vez que hemos detectado los DNS del dominio con los comandos anteriores podemos sacar informacion de ellos con:
+
+```dig axfr @nsztm1.digi.ninja zonetransfer.me```
+
+Otra herramienta que podemos usar para sacar informacion de un dominio es:
+
+```fierce --domain hackersploit.org```
+
+
+```Como dato, los SO tienen un fichero donde guardan algunos hosts localmente en linux esta en /etc/hosts, estos registros los cogera sin consultar el servidor y podemos añadir los que queramos```
+
+---
+
+## Host Discovery with Nmap
+
 
 
 
