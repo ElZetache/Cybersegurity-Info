@@ -116,6 +116,6 @@ Las conexiones por UDP son mas lentas que las de TCP, ademas son open|filtered.
 
 Nmap tambien nos sirve para hacer escaneo de puertos.
 
-Lo hemos visto en [Information Gathering](../01%20-%20Information%20Gathering/Apuntes.md).
+Lo hemos visto en [Information Gathering](../01%20-%20Information%20Gathering/Apuntes.md#Port-Scanning-With-Nmap).
 
 ``
