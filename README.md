@@ -1,4 +1,7 @@
-<p align="right">
+<p witdh="25%" align="left">
+    
+</p>
+<p witdh="25%" align="right">
   <img witdh="100px" height="100px" src="img/zhacker.gif">  
 </p>
 
