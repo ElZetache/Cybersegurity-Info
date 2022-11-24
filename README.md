@@ -29,3 +29,4 @@
     - Assessment Methodologies
         - [Footprinting and Scanning](/eJPT/02%20-%20Assessment%20Methodologies/01%20-%20Assesment%20Methodologies-Footprinting%20%26%20Scanning%20-%20copia.md)
         - [Enumeration](/eJPT/02%20-%20Assessment%20Methodologies/02%20-%20Assesment%20Methodologies-Enumeration.md)
+
