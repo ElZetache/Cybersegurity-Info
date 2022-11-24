@@ -1,7 +1,21 @@
 # Assessment Methodologies: Footprinting & Scanning 
 ## Index
-- [Course introduction](#Course-Introduction)
-- [Mapping a Network](#Mapping-a-Network)
+- [Introduccion](#introduccion)
+  - [Objetivos de aprendizage](#objetivos-de-aprendizage)
+- [Mapping a Network](#mapping-a-network)
+  - [Objetivos](#objetivos)
+  - [Proceso](#proceso)
+  - [Herramientas que usaremos para mapear](#herramientas-que-usaremos-para-mapear)
+    - [WIRESHARK](#wireshark)
+    - [ARP-SCAN](#arp-scan)
+    - [PING](#ping)
+    - [FPING](#fping)
+    - [NMAP](#nmap)
+    - [ZENMAP](#zenmap)
+- [Port Scanning](#port-scanning)
+  - [Objetivos](#objetivos)
+  - [NMAP](#nmap)
+  - [Otras aplicaciones que podemos usar para reconocimiento de puertos](#otras-aplicaciones-que-podemos-usar-para-reconocimiento-de-puertos)
 
 ---
 
@@ -72,7 +86,7 @@ Si ejecutamos un ping podremos ver si el host responde.
 #### FPING
 FPING es una utilidad que realiza multiples pings en una red y nos devuelve los host que responden.
 
-`fping -I eth0 192.168.0.100/24 -a 2>/dev/null`
+`fping -I eth0 -g 192.168.0.100/24 -a 2>/dev/null`
 
 ![fping](img/fping-1.png)
 
@@ -122,3 +136,16 @@ Lo hemos visto en [Information Gathering](../01%20-%20Information%20Gathering/Ap
 Podemos escanear varios puertos a la vez con:
 
 `nmap -iL "fichero con lista de IP"`
+
+---
+### Otras aplicaciones que podemos usar para reconocimiento de puertos
+- ZENMAP
+- NMAP AUTOMATOR
+- MASSCAN
+- RUSTSCAN
+- AUTORECON
+
+---
+---
+
+
