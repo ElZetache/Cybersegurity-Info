@@ -14,7 +14,7 @@
 - *Estos es un recopilatorio de paginas con informacion o utilidades utiles que voy encontrando.*
 
     - [Listado de certificados de CiberSeguridad](https://pauljerimy.com/security-certification-roadmap/)
-    -[Web que explica lo que esta haciendo un comando de linux](https://explainshell.com/)
+    - [Web que explica lo que esta haciendo un comando de linux](https://explainshell.com/)
     - [Guia PTES](http://www.pentest-standard.org/index.php/PTES_Technical_Guidelines)
     - [Web para editar expresiones regulares](https://regex101.com/)
     - [Web que nos genera automaticamente expresiones regulares](https://www.autoregex.xyz/)
