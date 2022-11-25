@@ -21,6 +21,8 @@
     - [Para generar indices en ficheros MD](https://luciopaiva.com/markdown-toc/)
     - [OWASP Top 10 Fallos WEB](https://owasp.org/www-project-top-ten/)
       - [Su GitHub](https://github.com/OWASP/www-project-top-ten/blob/master/index.md)
+    - Congresos de CiberSeguridad
+      - [NcN Barcelona](https://www.noconname.org/)
 
 ## Repositorios utiles 
 - *Repositorios de utilidad que he ido encontrando*
