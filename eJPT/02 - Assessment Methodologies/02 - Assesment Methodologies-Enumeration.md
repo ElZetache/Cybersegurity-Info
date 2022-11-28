@@ -125,7 +125,7 @@ Tambien podemos descargar ficheros con los siguientes atributos:
 
 `smbmap -H 10.4.26.58 -u Administrator -p 'smbserber_771' --download 'C$/flag.txt`
 
-## SMB: Samba 1
+## SMB: Algunas herramientas extra
 
 - Otras herramientas que podemos usar:
     - msfconsole: Metasploit framework
@@ -140,6 +140,12 @@ Tambien podemos descargar ficheros con los siguientes atributos:
 
     - smbclient
     - rpcclient
+        - Si tenemos acceso con una sesion null podemos obtener algo de informacion extra con `rpcclient`:
+            - `rpcclient -U "" -N 192.76.242.3`
+            - `srvinfo`
+            ![srvinfo](img/rpcclient-1.png)
+    - enum4linux
+        - `enum4linux -o "ip"` --> devuelve bastante informacion util del SMB.
 
-## SMB: Samba 2
+
 
