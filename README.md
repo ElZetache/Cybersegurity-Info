@@ -18,14 +18,18 @@
     - [Guia PTES](http://www.pentest-standard.org/index.php/PTES_Technical_Guidelines)
     - [Web para editar expresiones regulares](https://regex101.com/)
     - [Web que nos genera automaticamente expresiones regulares](https://www.autoregex.xyz/)
+<<<<<<< Updated upstream
     - [Para generar indices en ficheros MD](https://luciopaiva.com/markdown-toc/)
     - [OWASP Top 10 Fallos WEB](https://owasp.org/www-project-top-ten/)
       - [Su GitHub](https://github.com/OWASP/www-project-top-ten/blob/master/index.md)
     - Congresos de CiberSeguridad
       - [NcN Barcelona](https://www.noconname.org/)
+=======
+    - [Apuntes de Xero sobre CiberSeguridad](https://hack.xero-sec.com)
+>>>>>>> Stashed changes
 
 ## Repositorios utiles 
-- *Repositorios de utilidad que he ido encontrando*
+- *Repositorios de utilidad que he ido encontrando.*
     - [Herramienta que busca informacion de correos. Autor: MicroJuan](https://github.com/micro-joan/D4TA-HUNTER)
     - [Apuntes que comparten Sanyam y Juned del curso OSCP](https://oscpnotes.infosecsanyam.in/My_OSCP_Preparation_Notes.html)
 
