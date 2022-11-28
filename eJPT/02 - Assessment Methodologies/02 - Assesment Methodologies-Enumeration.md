@@ -191,4 +191,19 @@ Es otra herramienta que podemos usar para realizar ataques de diccionario. Un ej
 
 `hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.125.26.3 smb`
 
+---
+---
 
+# FTP (File Transfer Protocol)
+
+Es un protocolo utilizado para transferencias de archivo (Como dice su nombre), suele alojarse en el puerto 21/TCP.
+
+Para conectarnos se usa el comando `ftp "IP"`.
+
+Si no nos deja conectarnos sin poner usuario ni contraseña podemos por ejemplo probar la fuerza bruta con `hydra`:
+
+`hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt "IP" ftp`
+
+Si sabemos un usuario tambien podemos probar fuerza bruta con nmap:
+
+`nmap "ip" --script=ftp-brute --script-args userdb="usuario o fichero con usarios" -p21`

@@ -108,8 +108,6 @@ Es una version grafica de NMAP.
 
 Nos podemos hacer una idea de como esta organizada la red con esta herramienta.
 
-![zenmap](img/zenmap-1.png)
-
 ---
 ---
 ---
