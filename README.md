@@ -24,9 +24,7 @@
       - [Su GitHub](https://github.com/OWASP/www-project-top-ten/blob/master/index.md)
     - Congresos de CiberSeguridad
       - [NcN Barcelona](https://www.noconname.org/)
-=======
     - [Apuntes de Xero sobre CiberSeguridad](https://hack.xero-sec.com)
->>>>>>> Stashed changes
 
 ## Repositorios utiles 
 - *Repositorios de utilidad que he ido encontrando.*
