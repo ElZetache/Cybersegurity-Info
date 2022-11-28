@@ -1,7 +1,19 @@
 # Assessment Methodologies: Enumeration
 # Indice
 
-
+- [Assessment Methodologies: Enumeration](#assessment-methodologies-enumeration)
+- [Indice](#indice)
+- [Introduccion](#introduccion)
+- [Servidores y servicios](#servidores-y-servicios)
+- [SMB](#smb)
+  - [SMB: Windows Discover And Mount](#smb-windows-discover-and-mount)
+  - [SMB: Nmap Scripts](#smb-nmap-scripts)
+  - [SMB: SMBMap](#smb-smbmap)
+  - [SMB: Algunas herramientas extra](#smb-algunas-herramientas-extra)
+  - [SMB: Dictionary attack](#smb-dictionary-attack)
+    - [Con Metasploid](#con-metasploid)
+    - [Con Hydra](#con-hydra)
+    
 ---
 
 # Introduccion
@@ -125,6 +137,7 @@ Tambien podemos descargar ficheros con los siguientes atributos:
 
 `smbmap -H 10.4.26.58 -u Administrator -p 'smbserber_771' --download 'C$/flag.txt`
 
+---
 ## SMB: Algunas herramientas extra
 
 - Otras herramientas que podemos usar:
@@ -139,6 +152,10 @@ Tambien podemos descargar ficheros con los siguientes atributos:
             ![metasploit](img/metasploit-3.png)
 
     - smbclient
+        - `smbclient -L "IP" -N`
+        - Tambien nos podemos conectar al servidor con el siguiente comando:
+        `smbclient //IP/recurso -N`
+         
     - rpcclient
         - Si tenemos acceso con una sesion null podemos obtener algo de informacion extra con `rpcclient`:
             - `rpcclient -U "" -N 192.76.242.3`
@@ -146,6 +163,32 @@ Tambien podemos descargar ficheros con los siguientes atributos:
             ![srvinfo](img/rpcclient-1.png)
     - enum4linux
         - `enum4linux -o "ip"` --> devuelve bastante informacion util del SMB.
+---
+## SMB: Dictionary attack
 
+### Con Metasploid
+
+Hasta ahora hemos visto tecnicas que podemos usar sin autenticarnos, vamos a ver que podemos hacer en caso de necessitar loguearnos en la maquina objetivo.
+
+Tenemos unas listas llamados WordLists que son listas de passwords que se usan comunmente o que se han filtrado en paginas web.
+
+Estas listas las podemos usar para hacer un ataque por diccionario de fuerza bruta.
+
+Tenemos un modulo en Metasploit para realizar esto en la ruta `auxiliary/scanner/smb/smb_login`.
+
+Tendremos que especificarle alguna informacion:
+- RHOSTS
+- USERPASS_FILE --> el diccionario
+- smbuser --> si queremos que ataque un usuario concreto
+
+---
+
+### Con Hydra
+
+Es otra herramienta que podemos usar para realizar ataques de diccionario. Un ejemplo de sintaxis sería:
+
+`hydra -l "user que queremos probar" -P "diccionario "IP objetivo" "protocolo que atacamos"` 
+
+`hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.125.26.3 smb`
 
 
