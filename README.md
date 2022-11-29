@@ -8,7 +8,10 @@
 # INDICE 
 ---
 
+## Documentacion Herramientas mas usadas
 
+- En esta lista pondre la documentacion de las herramienas que mas uso:
+    - [NMap](https://nmap.org/)
 
 ## Paginas web:
 - *Estos es un recopilatorio de paginas con informacion o utilidades utiles que voy encontrando.*
@@ -18,7 +21,6 @@
     - [Guia PTES](http://www.pentest-standard.org/index.php/PTES_Technical_Guidelines)
     - [Web para editar expresiones regulares](https://regex101.com/)
     - [Web que nos genera automaticamente expresiones regulares](https://www.autoregex.xyz/)
-<<<<<<< Updated upstream
     - [Para generar indices en ficheros MD](https://luciopaiva.com/markdown-toc/)
     - [OWASP Top 10 Fallos WEB](https://owasp.org/www-project-top-ten/)
       - [Su GitHub](https://github.com/OWASP/www-project-top-ten/blob/master/index.md)

