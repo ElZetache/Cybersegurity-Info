@@ -12,6 +12,7 @@
 
 - En esta lista pondre la documentacion de las herramienas que mas uso:
     - [NMap](https://nmap.org/)
+    - [Metasploit](https://docs.metasploit.com/)
 
 ## Paginas web:
 - *Estos es un recopilatorio de paginas con informacion o utilidades utiles que voy encontrando.*
