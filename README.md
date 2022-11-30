@@ -28,6 +28,8 @@
     - Congresos de CiberSeguridad
       - [NcN Barcelona](https://www.noconname.org/)
     - [Apuntes de Xero sobre CiberSeguridad](https://hack.xero-sec.com)
+    - [HackerOne](https://www.hackerone.com)
+      - [HackerOne (plataforma de aprendizage)](https://www.hacker101.com/)
 
 ## Repositorios utiles 
 - *Repositorios de utilidad que he ido encontrando.*

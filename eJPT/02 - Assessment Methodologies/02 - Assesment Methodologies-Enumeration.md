@@ -250,9 +250,74 @@ Es muy parecido al resto de ataques de diccionario.
     - Ejemplo:
 
         `hydra -l student -P /usr/share/wordlists/rockyou.txt 192.141.55.3 ssh` 
-![hydra](img/hydra-ssh-1.png)
+        ![hydra](img/hydra-ssh-1.png)
 - Tambien podemos usar NMAP como en el siguiente ejemplo:
 
     `nmap 192.141.55.3 -p22 --script ssh-brute --script-args userdb=/root/user`
 
 - Tambien podemos usar nuestro amigo metasploit con el   siguiente exploit: `auxiliary/scanner/ssh/ssh_login` , tendremos que informar el diccionario y e usuario
+
+---
+---
+
+# HTTP
+
+Es un protocolo destinado a alojar paginas web, lo podemos encontrar tanto en inspecciones externas de una red como en internas.
+
+Esto es una gran parte de internet.
+
+Estas paginas pueden contener gran variedad de contenido en diferentes lenguajes, lo que abre la puerta a muchas vulnerabilidades.
+
+## Herramientas para enumerar HTTP
+- ``whatweb "IP"`` --> este comando nos puede dar algo de informacion sobre el servicio alojado.
+
+- `http "IP"` --> tambien nos devuelve informacion.
+
+- `dirb http://"IP"` --> enumera tambien informacion util
+
+- `browsh --startup-url http://"IP"/ruta` para ver un sitio desde la consola. *(cntrl+w para salir)*
+
+- `lynx "URL"` --> como browsh pero muestra la pagina un poco mas adaptada a consola quitando un poco la parte grafica.
+
+- `curl "IP"` --> nos devuelve el codigo fuente de la pagina.
+
+- `wget "URL"` --> nos descarga el archivo que digamos.
+
+
+
+## HTTP: Nmap Scripts
+
+- `nmap "IP" -p80 --script http-enum`  --> nos da informacion de directorios de la pagina web.
+
+- `nmap "IP" -p80 --script http-headers`  --> nos da la informacion del header.
+
+- `nmap "IP" -p80 --script http-methods`  --> para saber que metodos estan permitidos en una pagina. Podemos pasarle por argumentos un directorio especifico:
+    - `nmap "IP" -p80 --script http-methods --script-args http-methods.url-path=/webdav/`
+
+- **banner** --> nos devuelve la informacion que nos da el servidos cuando nos conectamos por primera vez.
+
+## HTTP: Metasploit
+
+- Herramientas para enumerar:
+    - `auxiliary/scanner/http/http_version` --> dice la version.
+    - `auxiliary/scanner/http/brute_dirs` --> busca los directorios a partir de una wordlist interna.
+    - `auxiliary/scanner/http/robots_txt` --> muestra informacion obtenida del fichero robots.txt
+
+
+
+## HTTP: APACHE
+
+Todo el tema de enumeracion es muy similar a el servidor de windows, la mayor diferencia es lo que encontraremos cuando consigamos accesos a la maquina servidor.
+
+En este caso nos encontraremos la bash de linux.
+
+192.117.151.3
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+ wget http://192.117.151.3 > index | cat index
+
+ ---
+ ---
+
+ # MySQL
+
+ 
