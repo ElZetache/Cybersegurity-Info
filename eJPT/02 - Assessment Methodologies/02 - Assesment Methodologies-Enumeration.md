@@ -13,7 +13,21 @@
   - [SMB: Dictionary attack](#smb-dictionary-attack)
     - [Con Metasploid](#con-metasploid)
     - [Con Hydra](#con-hydra)
-
+- [FTP (File Transfer Protocol)](#ftp-file-transfer-protocol)
+  - [FTP si no tenemos usuario o password](#ftp-si-no-tenemos-usuario-o-password)
+  - [FTP Anonymous Login](#ftp-anonymous-login)
+- [SSH (Secure Shell)](#ssh-secure-shell)
+  - [SSH: Obtener informacion del servidor](#ssh-obtener-informacion-del-servidor)
+  - [SSH: Ataque de diccionario](#ssh-ataque-de-diccionario)
+- [HTTP](#http)
+  - [Herramientas para enumerar HTTP](#herramientas-para-enumerar-http)
+  - [HTTP: Nmap Scripts](#http-nmap-scripts)
+  - [HTTP: Metasploit](#http-metasploit)
+  - [HTTP: APACHE](#http-apache)
+- [MySQL](#mysql)
+  - [Enumeracion MySQL](#enumeracion-mysql)
+    - [MySQL: Metasploit modulos](#mysql-metasploit-modulos)
+    - [MySQL: Nmap scripts](#mysql-nmap-scripts)
 ---
 
 # Introduccion
@@ -365,7 +379,7 @@ Estos son algunos scripts utiles de Nmap para enumeracion de MySql:
     - A este script hay que pasarle argumentos:
         - **username**
         - **password**
-- `mysql-query` --> devuelve el hash del usuario.
+- `mysql-query` --> te permite hacer una consulta sql.
     - A este script hay que pasarle argumentos:
         - **username**
         - **password**
