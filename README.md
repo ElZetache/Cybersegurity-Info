@@ -30,11 +30,13 @@
     - [Apuntes de Xero sobre CiberSeguridad](https://hack.xero-sec.com)
     - [HackerOne](https://www.hackerone.com)
       - [HackerOne (plataforma de aprendizage)](https://www.hacker101.com/)
-
+    - [CVE lista de vulnerabilidades](https://cve.mitre.org)
+    - [Synack bug bounty program](https://www.synack.com/red-team/)
 ## Repositorios utiles 
 - *Repositorios de utilidad que he ido encontrando.*
     - [Herramienta que busca informacion de correos. Autor: MicroJuan](https://github.com/micro-joan/D4TA-HUNTER)
     - [Apuntes que comparten Sanyam y Juned del curso OSCP](https://oscpnotes.infosecsanyam.in/My_OSCP_Preparation_Notes.html)
+    
 
 ## eJPT
 

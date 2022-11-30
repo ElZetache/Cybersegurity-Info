@@ -320,4 +320,54 @@ En este caso nos encontraremos la bash de linux.
 
  # MySQL
 
- 
+ Es una de las versiones de BBDD libres de SQL mas comunes.
+
+ Esta presente en muchas compañias y es comun que este con algunas cosas sin configurar y vulnerable. Esta suele estas en el puerto 3306/TCP.
+
+ - algunos comandos disponibles:
+    -   Para conectarnos podemos usar: `mysql -h "IP" -U "Usuario"`. En linux si no se ha configurado lo contrario por defecto el usuario de admin es **root**, por lo que podemos probar `myseql -h "IP" -U root`.
+
+Una vez conectado al servidor podremos hacer consultar via lenguaje **SQL**.
+
+Podemos probar comandos **SQL** como el siguiente a ver si podemos obtener datos de los ficheros del servidor: `select load_file("/etc/shadow")`
+
+## Enumeracion MySQL
+### MySQL: Metasploit modulos
+
+- **auxiliary/scanner/mysql/mysql_writable_dirs** --> revisa los directorios disponibles en el servidor.
+
+- **auxiliary/scanner/mysql/mysql_hashdump** --> obtenemos los hashes de usuarios.
+
+### MySQL: Nmap scripts
+
+Estos son algunos scripts utiles de Nmap para enumeracion de MySql:
+
+- `mysql-empty-password` --> Te devuelve si hay algun usuario que tenga conexion sin contraseña.
+- `mysql-info` --> Da informacion del servicio alojado.
+- `mysql-users` --> Te devuelve una lista de los usuarios.
+    - A este script hay que pasarle argumentos:
+        - **mysqluser**
+        - **mysqlpass**
+- `mysql-databases` --> te lista las BBDD del servidor.
+    - A este script hay que pasarle argumentos:
+        - **mysqluser**
+        - **mysqlpass**
+- `mysql-variables` --> algunos datos de configuracion de la BBDD
+    - A este script hay que pasarle argumentos:
+        - **mysqluser**
+        - **mysqlpass**
+- `mysql-audit` --> hace algunas pruebas de seguridad del servidor.
+    - A este script hay que pasarle argumentos:
+        - **username**
+        - **password**
+        - **filename** --> /user/share/nmap/nselib/data/mysql-cis.audit
+- `mysql-dump-hashes` --> devuelve el hash del usuario.
+    - A este script hay que pasarle argumentos:
+        - **username**
+        - **password**
+- `mysql-query` --> devuelve el hash del usuario.
+    - A este script hay que pasarle argumentos:
+        - **username**
+        - **password**
+        - **query** --> la sentencia que queremos ejecutar.
+
