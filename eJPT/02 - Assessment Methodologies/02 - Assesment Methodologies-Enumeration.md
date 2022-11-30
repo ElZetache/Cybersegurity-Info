@@ -1,8 +1,6 @@
 # Assessment Methodologies: Enumeration
 # Indice
 
-- [Assessment Methodologies: Enumeration](#assessment-methodologies-enumeration)
-- [Indice](#indice)
 - [Introduccion](#introduccion)
 - [Servidores y servicios](#servidores-y-servicios)
 - [SMB](#smb)
