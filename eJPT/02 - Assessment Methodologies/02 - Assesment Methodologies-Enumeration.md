@@ -22,10 +22,17 @@
   - [HTTP: Nmap Scripts](#http-nmap-scripts)
   - [HTTP: Metasploit](#http-metasploit)
   - [HTTP: APACHE](#http-apache)
+
 - [MySQL](#mysql)
   - [Enumeracion MySQL](#enumeracion-mysql)
     - [MySQL: Metasploit modulos](#mysql-metasploit-modulos)
     - [MySQL: Nmap scripts](#mysql-nmap-scripts)
+    - [MySQL: Dictionary attack](#mysql-dictionary-attack)
+  - [Enumeracion MsSQl](#enumeracion-mssql)
+    - [MsSQL: Metasploit modulos](#mssql-metasploit-modulos)
+    - [MsSQL: Nmap Scripts](#mssql-nmap-scripts)
+
+---
 ---
 
 # Introduccion
@@ -397,6 +404,12 @@ Es muy parecido a MySql pero es propio de windows.
 
 ### MsSQL: Metasploit modulos
 
+- **auxiliary/scanner/mssql/mssql_login** --> fuerza bruta.
+- **auxiliary/admin/mssql/mssql_enum** --> enumeracion del servidor.
+- **auxiliary/admin/mssql/mssql_enum_sql_login** --> devuelve un poco de informacion de los usuarios.
+- **auxiliary/admin/mssql/mssql_exec** --> para ejecutar comandos de cmd.
+- **auxiliary/admin/mssql/mssql_enum_domain_accounts** --> da informacion de las cuentas del dominio.
+
 ### MsSQL: Nmap Scripts
 
 Estos son algunos scripts utiles de Nmap para enumeracion de MsSQL:
@@ -420,4 +433,3 @@ Estos son algunos scripts utiles de Nmap para enumeracion de MsSQL:
     - **username** 
     - **password** 
     - **cmd** --> comando a ejecutar.
-    

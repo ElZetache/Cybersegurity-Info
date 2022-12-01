@@ -32,6 +32,9 @@
       - [HackerOne (plataforma de aprendizage)](https://www.hacker101.com/)
     - [CVE lista de vulnerabilidades](https://cve.mitre.org)
     - [Synack bug bounty program](https://www.synack.com/red-team/)
+    - Blogs de ciber:
+      - [Blog de BugBounty y Pentestig](https://bugbountyguide.org)
+        - [Entrada sobre la preparacion del OSCP](https://bugbountyguide.org/index.php/2022/11/29/oscp-preparation-with-active-directory/)
 ## Repositorios utiles 
 - *Repositorios de utilidad que he ido encontrando.*
     - [Herramienta que busca informacion de correos. Autor: MicroJuan](https://github.com/micro-joan/D4TA-HUNTER)
