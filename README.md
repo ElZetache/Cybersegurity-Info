@@ -35,6 +35,11 @@
     - Blogs de ciber:
       - [Blog de BugBounty y Pentestig](https://bugbountyguide.org)
         - [Entrada sobre la preparacion del OSCP](https://bugbountyguide.org/index.php/2022/11/29/oscp-preparation-with-active-directory/)
+      - [Blog de tarlogic](https://www.tarlogic.com/es/blog)
+        - [Entrada sobre OWASP](https://www.tarlogic.com/es/blog/metodologia-owasp/)
+
+---
+---
 ## Repositorios utiles 
 - *Repositorios de utilidad que he ido encontrando.*
     - [Herramienta que busca informacion de correos. Autor: MicroJuan](https://github.com/micro-joan/D4TA-HUNTER)
@@ -51,6 +56,7 @@
     - Assessment Methodologies
         - [Footprinting and Scanning](/eJPT/02%20-%20Assessment%20Methodologies/01%20-%20Assesment%20Methodologies-Footprinting%20%26%20Scanning.md)
         - [Enumeration](/eJPT/02%20-%20Assessment%20Methodologies/02%20-%20Assesment%20Methodologies-Enumeration.md)
+        - [Vulnerability Assessment](/eJPT/02%20-%20Assessment%20Methodologies/03%20-%20Assesment%20Methodologies-Vulnerability-Assessment.md)
 
 ---
 ---
