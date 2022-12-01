@@ -45,6 +45,7 @@
 - *Repositorios de utilidad que he ido encontrando.*
     - [Herramienta que busca informacion de correos. Autor: MicroJuan](https://github.com/micro-joan/D4TA-HUNTER)
     - [Apuntes que comparten Sanyam y Juned del curso OSCP](https://oscpnotes.infosecsanyam.in/My_OSCP_Preparation_Notes.html)
+    - [BugBounty INFO](https://github.com/EdOverflow/bugbounty-cheatsheet)
     
 
 ## eJPT
