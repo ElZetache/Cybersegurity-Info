@@ -383,3 +383,41 @@ Estos son algunos scripts utiles de Nmap para enumeracion de MySql:
         - **password**
         - **query** --> la sentencia que queremos ejecutar.
 
+### MySQL: Dictionary attack
+
+Ahora miraremos como conseguir un password de un usuario concreto utilizando un ataque de diccionario.
+
+Podemos usar metasploit con su modulo `auxiliary/mysql/mysql_login`, para el fichero de passwords tenemos una wordlist en `/usr/share/metasploit-framework/data/wordlists/unix_passwords.txt`
+
+Otra manera de hacer fuerza bruta es usar Hydra con la misma sintaxis de siempre informando que es protocolo mysql: `hydra -l root -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt "IP" mysql`
+
+## Enumeracion MsSQl
+
+Es muy parecido a MySql pero es propio de windows.
+
+### MsSQL: Metasploit modulos
+
+### MsSQL: Nmap Scripts
+
+Estos son algunos scripts utiles de Nmap para enumeracion de MsSQL:
+
+- `ms-sql-info` --> devuelve informacion basica del servidor.
+- `ms-sql-ntlm-info` --> devuelve mas informacion, a este necesitamos pasarle argumentos:
+    - **instance-port** --> el puerto donde escucha el servicio.
+- `ms-sql-brute` --> para realizar fuerza bruta, debemos pasarle los siguientes argumentos:
+    - **userdb** --> lista de usuarios comunes.
+    - **passdb** --> lista de passwords.
+- `ms-sql-empty-password` --> para buscar usuarios que aceptes log sin password.
+- `ms-sql-query` --> para ejecutar querys, argumentos:
+    - **username** 
+    - **password** 
+    - **query**
+    - Tambien podemos poner al final el argumento -oN output.txt para que nos guarde la salida en un fichero donde lo podremos visualizar mejor.
+- `ms-sql-dump-hashes` --> para obtener hashes de los usuarios, argumentos:
+    - **username** 
+    - **password** 
+- `ms-sql-xp-cmdshell` --> podemos ejecutar comandos de consola
+    - **username** 
+    - **password** 
+    - **cmd** --> comando a ejecutar.
+    
