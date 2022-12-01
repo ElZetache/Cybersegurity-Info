@@ -14,6 +14,7 @@
     - [NMap](https://nmap.org/)
     - [Metasploit](https://docs.metasploit.com/)
     - [Hydra](https://github.com/vanhauser-thc/thc-hydra)
+    - [Nessus](https://docs.tenable.com/nessus/10_4/Content/GetStarted.htm)
 
 ## Paginas web:
 - *Estos es un recopilatorio de paginas con informacion o utilidades utiles que voy encontrando.*
