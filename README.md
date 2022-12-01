@@ -10,9 +10,10 @@
 
 ## Documentacion Herramientas mas usadas
 
-- En esta lista pondre la documentacion de las herramienas que mas uso:
+- En esta lista pondre la documentacion de las herramientas que mas uso:
     - [NMap](https://nmap.org/)
     - [Metasploit](https://docs.metasploit.com/)
+    - [Hydra](https://github.com/vanhauser-thc/thc-hydra)
 
 ## Paginas web:
 - *Estos es un recopilatorio de paginas con informacion o utilidades utiles que voy encontrando.*
