@@ -39,6 +39,7 @@
         - [Entrada sobre la preparacion del OSCP](https://bugbountyguide.org/index.php/2022/11/29/oscp-preparation-with-active-directory/)
       - [Blog de tarlogic](https://www.tarlogic.com/es/blog)
         - [Entrada sobre OWASP](https://www.tarlogic.com/es/blog/metodologia-owasp/)
+      - [Blog de Chema Alonso](https://www.elladodelmal.com/)
 
 ---
 ---
