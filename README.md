@@ -36,7 +36,7 @@
     - [CVE lista de vulnerabilidades](https://cve.mitre.org)
     - [Synack bug bounty program](https://www.synack.com/red-team/)
     - Blogs de ciber:
-      - [Blog de BugBounty y Pentestig](https://bugbountyguide.org)
+      - [Blog de BugBounty y Pentesting](https://bugbountyguide.org)
         - [Entrada sobre la preparacion del OSCP](https://bugbountyguide.org/index.php/2022/11/29/oscp-preparation-with-active-directory/)
       - [Blog de tarlogic](https://www.tarlogic.com/es/blog)
         - [Entrada sobre OWASP](https://www.tarlogic.com/es/blog/metodologia-owasp/)
