@@ -53,7 +53,7 @@
 
 ## eJPT
 
-- *Estos son mis apuntes para sacarme el eJPT, este contenido esta hecho a mi manera y quizá no sirva para estudiar a otra persona, igualmente algo de informacion util puedes sacar -- Igualmente recomiendo formarse en una plataforma tipo INE, HTB, cursos, con formadores de calidad*
+- *Estos son mis apuntes para el eJPT, este contenido esta hecho a mi manera y quizá no sirva para estudiar a otra persona, igualmente algo de informacion util puedes sacar -- Igualmente recomiendo formarse en una plataforma tipo INE, HTB, cursos, con formadores de calidad*
 
 - **Es posible que algun contenido se repita, pues son apuntes tomados durante el tiempo que he dedicado a formarme y aveces se repasan algunos conceptos varias veces**
 
