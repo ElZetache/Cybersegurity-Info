@@ -62,6 +62,8 @@
         - [Footprinting and Scanning](/eJPT/02%20-%20Assessment%20Methodologies/01%20-%20Assesment%20Methodologies-Footprinting%20%26%20Scanning.md)
         - [Enumeration](/eJPT/02%20-%20Assessment%20Methodologies/02%20-%20Assesment%20Methodologies-Enumeration.md)
         - [Vulnerability Assessment](/eJPT/02%20-%20Assessment%20Methodologies/03%20-%20Assesment%20Methodologies-Vulnerability-Assessment.md)
+    - Host And Networking Auditing
+        - [Auditing Fundamentals](/eJPT/03%20-%20Host%20And%20Networking%20Auditing/01%20-%20Assesment%20Methodologies-Auditing-Fundamentals.md)
 
 ---
 ---
