@@ -19,6 +19,7 @@
 ## Paginas web:
 - *Estos es un recopilatorio de paginas con informacion o utilidades utiles que voy encontrando.*
 
+    - [Exploit DB - Offensive segurity](https://www.exploit-db.com/)
     - [Listado de certificados de CiberSeguridad](https://pauljerimy.com/security-certification-roadmap/)
     - [Web que explica lo que esta haciendo un comando de linux](https://explainshell.com/)
     - [Guia PTES](http://www.pentest-standard.org/index.php/PTES_Technical_Guidelines)
