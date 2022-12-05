@@ -50,5 +50,7 @@ Estas auditorias pueden empezar por entrevistas a los CISO, a los administradore
 
 Revisar historiales o registros de como han seguido ciertos procesos en el pasado (Que hacen con los usuarios de extrabajadores y este tipo de procesos como los han tratado para no perder informacion).
 
+# SCAP Scan and Stigviewer
+
 
 
