@@ -19,6 +19,7 @@
 ## Paginas web:
 - *Estos es un recopilatorio de paginas con informacion o utilidades utiles que voy encontrando.*
 
+    - [Exploit DB - Offensive segurity](https://www.exploit-db.com/)
     - [Listado de certificados de CiberSeguridad](https://pauljerimy.com/security-certification-roadmap/)
     - [Web que explica lo que esta haciendo un comando de linux](https://explainshell.com/)
     - [Guia PTES](http://www.pentest-standard.org/index.php/PTES_Technical_Guidelines)
@@ -35,10 +36,11 @@
     - [CVE lista de vulnerabilidades](https://cve.mitre.org)
     - [Synack bug bounty program](https://www.synack.com/red-team/)
     - Blogs de ciber:
-      - [Blog de BugBounty y Pentestig](https://bugbountyguide.org)
+      - [Blog de BugBounty y Pentesting](https://bugbountyguide.org)
         - [Entrada sobre la preparacion del OSCP](https://bugbountyguide.org/index.php/2022/11/29/oscp-preparation-with-active-directory/)
       - [Blog de tarlogic](https://www.tarlogic.com/es/blog)
         - [Entrada sobre OWASP](https://www.tarlogic.com/es/blog/metodologia-owasp/)
+      - [Blog de Chema Alonso](https://www.elladodelmal.com/)
 
 ---
 ---
@@ -48,10 +50,12 @@
     - [Apuntes que comparten Sanyam y Juned del curso OSCP](https://oscpnotes.infosecsanyam.in/My_OSCP_Preparation_Notes.html)
     - [BugBounty INFO](https://github.com/EdOverflow/bugbounty-cheatsheet)
     
+---
+---
 
 ## eJPT
 
-- *Estos son mis apuntes para sacarme el eJPT, este contenido esta hecho a mi manera y quizá no sirva para estudiar a otra persona, igualmente algo de informacion util puedes sacar -- Igualmente recomiendo formarse en una plataforma tipo INE, HTB, cursos, con formadores de calidad*
+- *Estos son mis apuntes para el eJPT, este contenido esta hecho a mi manera y quizá no sirva para estudiar a otra persona, igualmente algo de informacion util puedes sacar -- Igualmente recomiendo formarse en una plataforma tipo INE, HTB, cursos, con formadores de calidad*
 
 - **Es posible que algun contenido se repita, pues son apuntes tomados durante el tiempo que he dedicado a formarme y aveces se repasan algunos conceptos varias veces**
 
@@ -60,6 +64,8 @@
         - [Footprinting and Scanning](/eJPT/02%20-%20Assessment%20Methodologies/01%20-%20Assesment%20Methodologies-Footprinting%20%26%20Scanning.md)
         - [Enumeration](/eJPT/02%20-%20Assessment%20Methodologies/02%20-%20Assesment%20Methodologies-Enumeration.md)
         - [Vulnerability Assessment](/eJPT/02%20-%20Assessment%20Methodologies/03%20-%20Assesment%20Methodologies-Vulnerability-Assessment.md)
+    - Host And Networking Auditing
+        - [Auditing Fundamentals](/eJPT/03%20-%20Host%20And%20Networking%20Auditing/01%20-%20Assesment%20Methodologies-Auditing-Fundamentals.md)
 
 ---
 ---
