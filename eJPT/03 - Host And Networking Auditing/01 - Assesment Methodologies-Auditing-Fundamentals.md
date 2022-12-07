@@ -1,8 +1,11 @@
 # Assessment Methodologies: Vulnerability Assessment
 # Indice
 
-- [Introduccion](#introduccion)
-
+- [CyberSecurity basics](#cybersecurity-basics)
+- [Compliance](#compliance)
+- [Frameworks And Maturity](#frameworks-and-maturity)
+- [Auditing](#auditing)
+- [SCAP Scan and Stigviewer](#scap-scan-and-stigviewer)
 ---
 ---
 
@@ -51,6 +54,9 @@ Estas auditorias pueden empezar por entrevistas a los CISO, a los administradore
 Revisar historiales o registros de como han seguido ciertos procesos en el pasado (Que hacen con los usuarios de extrabajadores y este tipo de procesos como los han tratado para no perder informacion).
 
 # SCAP Scan and Stigviewer
+
+- SCAP --> Security Content Automation Protocol
+- STIGs --> Security Technical Implementation Guides
 
 
 
