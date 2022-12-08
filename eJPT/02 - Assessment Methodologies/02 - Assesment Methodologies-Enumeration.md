@@ -81,7 +81,7 @@ Podemos ejecutar un Nmap para descubrir estos servicios y probar de conectarnos.
 
 Comando windows para conectar:
 
-`net use Z: \\"IP"\"RUTA" smbserver /USER:administrator`
+```net use Z: \\"IP"\"RUTA" smbserver /USER:administrator```sh
 
 ## SMB: Nmap Scripts
 
