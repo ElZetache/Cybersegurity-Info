@@ -86,6 +86,24 @@ Es un servicio web que que da una serie de extensiones **HTTP** que habilita a l
 
 Este servicio se configura encima de un servidos IIS.
 
+El tipo de identificacion en un WebDAV es a trabes de usuario y contraseña.
+
+#### WebDAV exploitation
+
+Para vulnerar un servicio **WebDAV** podemos seguir los siguientes pasos:
+1. Enumerar el Hosta para ver si tiene o no alojado un **WebDAV**, y tambien obtener informacion de la version y de si esta corriendo en un IIS o en un apache por ejemplo.
+2. Una vez hemos detectado un WebDAV podemos proceder a probar con un ataque de fuerza bruta con el objetivo de conseguir unas credenciales validas.
+3. Una vez que hemos conseguido autentificarnos podriamos subir alguno de los tipos de archivo que ejecuta el servidor IIS, por ejemplo un **.asp** para ejecutar codigo e incluso obtener una reverse shell.
+
+Algunas herramientas que usaremos en este modulo son:
+
+- davtest: Para escanear, autentificar y explotar un WebDAV server.
+- cadaver: Nos permite identificarnos en el WebDAV y realizar acciones con los ficheros (Descargar, subir, modificar...).
+
+
+
+
+
 
 
 
