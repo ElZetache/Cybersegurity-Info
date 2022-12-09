@@ -67,6 +67,9 @@
         - [Vulnerability Assessment](/eJPT/02%20-%20Assessment%20Methodologies/03%20-%20Assesment%20Methodologies-Vulnerability-Assessment.md)
     - Host And Networking Auditing
         - [Auditing Fundamentals](/eJPT/03%20-%20Host%20And%20Networking%20Auditing/01%20-%20Assesment%20Methodologies-Auditing-Fundamentals.md)
+    - Host And Network Penetration Testing
+        - [Host Based Attacks](/eJPT/04%20-%20Host%20And%20Network%20Penetration%20Testing/System-Host%20Based%20Attacks%20.md)
+          - [Windows](/eJPT/04%20-%20Host%20And%20Network%20Penetration%20Testing/System-Host%20Based%20Attacks%20.md#Windows-Vulnerabilities)
 
 ---
 ---

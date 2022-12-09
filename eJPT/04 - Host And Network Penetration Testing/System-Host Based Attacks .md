@@ -60,7 +60,7 @@ El objetivo de este curso es aprender sobre los servicios que pueden ser vulnera
 
 Conocer estos servicios y sus vulnerabilidades principales es algo imprescindible para un pentester.
 
-
+![WindowsVulnerabilities](img/windows-vulnerabilities-1.png)
 
 
 
