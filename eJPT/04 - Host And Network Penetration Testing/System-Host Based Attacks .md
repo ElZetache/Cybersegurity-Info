@@ -84,7 +84,7 @@ Los archivos executables que acepta son:
 
 Es un servicio web que que da una serie de extensiones **HTTP** que habilita a los usuarios para editar colaborativamente y trabajar con ficheros en servidores remotos.
 
-Este servicio se configura encima de un servidos IIS
+Este servicio se configura encima de un servidos IIS.
 
 
 
