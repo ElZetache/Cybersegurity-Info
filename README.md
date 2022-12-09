@@ -15,10 +15,11 @@
     - [Metasploit](https://docs.metasploit.com/)
     - [Hydra](https://github.com/vanhauser-thc/thc-hydra)
     - [Nessus](https://docs.tenable.com/nessus/10_4/Content/GetStarted.htm)
+    
 
 ## Paginas web:
 - *Estos es un recopilatorio de paginas con informacion o utilidades utiles que voy encontrando.*
-
+    - [Editor de hexadecimal](https://hexed.it/)
     - [Exploit DB - Offensive segurity](https://www.exploit-db.com/)
     - [Listado de certificados de CiberSeguridad](https://pauljerimy.com/security-certification-roadmap/)
     - [Web que explica lo que esta haciendo un comando de linux](https://explainshell.com/)
@@ -49,7 +50,7 @@
     - [Herramienta que busca informacion de correos. Autor: MicroJuan](https://github.com/micro-joan/D4TA-HUNTER)
     - [Apuntes que comparten Sanyam y Juned del curso OSCP](https://oscpnotes.infosecsanyam.in/My_OSCP_Preparation_Notes.html)
     - [BugBounty INFO](https://github.com/EdOverflow/bugbounty-cheatsheet)
-    
+    - [Cyber Chef](https://github.com/gchq/CyberChef)
 ---
 ---
 
