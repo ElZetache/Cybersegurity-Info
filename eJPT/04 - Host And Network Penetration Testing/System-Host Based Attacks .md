@@ -62,6 +62,35 @@ Conocer estos servicios y sus vulnerabilidades principales es algo imprescindibl
 
 ![WindowsVulnerabilities](img/windows-vulnerabilities-1.png)
 
+---
+
+# Exploiting Windows Vulnerabilities
+## Exploiting Microsoft IIS WebDAV 
+### Microsoft IIS
+
+Microsoft IIS es un servicio web desarrollado por Microsoft para **Windows**.
+
+Puede alojar paginas web estaticas y dinamicas desarrolladas en **ASP.NET** y **PHP**.
+
+Este servicio normalmente esta configurado para correr en el puerto 80 o 443 TCP.
+
+Los archivos executables que acepta son:
+- .asp
+- .aspx
+- .config
+- .php
+
+### WebDAV
+
+Es un servicio web que que da una serie de extensiones **HTTP** que habilita a los usuarios para editar colaborativamente y trabajar con ficheros en servidores remotos.
+
+Este servicio se configura encima de un servidos IIS
+
+
+
+
+
+
 
 
 
