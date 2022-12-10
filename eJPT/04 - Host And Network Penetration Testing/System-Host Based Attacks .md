@@ -213,7 +213,53 @@ El resultado del comando se nos junta con la IP, asi que la flag empieza donde a
 
 Con esto el laboratorio ya estaría resuelto.
 
+---
+---
+
 #### Laboratorio WebDAV con Metasploid (reverse shell)
+
+Este laboratorio consiste de una maquina parecida a la anterior con la diferencía de que esta bloquea alguna de las ejecuciones especificas por **.asp**, por lo que no nos permite trabajar con una webshell.
+
+Aun asi si que permite ejecutar otros archivos **.asp**, por lo que haremos una reverse shell usando metasploit y estos archivos.
+
+Primero de todo haremos un par de comprobaciones del objetivo para ver que tiene el servicio IIS activo en el puerto 80 y tambien para ver que existe el WebDAV enumerando los directorios:
+
+![nmap-lab-webdav](img/webdav-lab-2-1.png)
+
+Una vez hecha esta comprobacion haremos la verificacion con **davtest** para ver si acepta subir archivos y para ver cuales se pueden ejecutar. 
+
+Para el usuario y la contraseña nos lo chivan que es como en el laboratorio anterior:
+
+![nmap-lab-webdav](img/webdav-lab-2-2.png)
+
+Con la ejecucion del **davtest** podemos ver los archivos que nos permite subir y ademas podemos ver que en este caso el servidor tambien permite ejecuciones de ficheros **.asp**.
+
+Recordando que nos han chivado que en este caso el servidor bloquea ejecuciones de una webshell buscaremos otra forma, como por ejemplo probaremos a conseguir una **reverse shell** usando las funcionalidades de las herramientes de **metasploit** como **msfconsole** y **msfvenom**.
+
+El proceso es el siguiente:
+
+1. Con **msfvenom** generamos el **payload** en **.asp** para subirlo al servidor, este archivo sirve para ejecutarlo en el servidor y que nos envie la reverse shell. Se genera de la siguiente manera:
+    1. Con el comando `msfvenom --list payloads` veremos una lista de los payloads que podemos generar. En este caso nos interesa el windows/meterpreter/reverse_tcp.
+    2. Ejecutamos el siguiente comando para generar el archivo, le tendremos que informar el HOST que escucha que es la ip de NUESTRA MAQUINA y el PUERTO donde haremos la escucha desde nuestra maquina, tambien que tipo de extension de fichero queremos generar y en que fichero guardaremos el resultado:
+    ![nmap-lab-webdav](img/webdav-lab-2-3.png)
+2. Una vez tengamos generado nuestro **payload** usaremos la herramienta **cadaver** para subirlo a nuestro **webdav** objetivo:
+![nmap-lab-webdav](img/webdav-lab-2-4.png)
+Ahora si accedemos desde el navegador veremos que nuestro **payload** ya esta en el servidor:
+![nmap-lab-webdav](img/webdav-lab-2-5.png)
+3. Nuestro siguiente objetivo será crear la conexion ejecutando nuestro fichero **.asp** pero antes de ejecutarlo debemos ponernos en escucha desde nuestra maquina, para esto usaremos un modulo de **Metasploit**:
+![nmap-lab-webdav](img/webdav-lab-2-6.png)
+Tendremos que configurar un par de cosas para la escucha, el puerto tiene que ser el mismo que hemos puesto en nuestro **payload** y la **LHOST** la ip de la interfaz donde haremos la escucha. Tambien le tendremos que decir que tipo de payload usará:
+![nmap-lab-webdav](img/webdav-lab-2-7.png)
+![nmap-lab-webdav](img/webdav-lab-2-9.png)
+Una vez configurado ejecutamos y ya tendremos nuestra maquina en escucha esperando la conexion:
+![nmap-lab-webdav](img/webdav-lab-2-8.png)
+4. Una vez tengamos nuestra maquina es escucha iremos a la web del WebDAV y ejecutaremos nuestro fichero:
+![nmap-lab-webdav](img/webdav-lab-2-5.png)
+Acto seguido si todo ha ido bien veremos como nuestra maquina recibe la conexion y ya tendremos una consola operativa:
+![nmap-lab-webdav](img/webdav-lab-2-10.png)
+
+Ahora para acabar con el laboratorio solo nos queda buscar la **flag.txt** en la C: usando la consola.
+
 
 
 
