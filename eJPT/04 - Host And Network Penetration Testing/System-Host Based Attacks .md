@@ -258,7 +258,7 @@ Una vez configurado ejecutamos y ya tendremos nuestra maquina en escucha esperan
 Acto seguido si todo ha ido bien veremos como nuestra maquina recibe la conexion y ya tendremos una consola operativa:
 ![nmap-lab-webdav](img/webdav-lab-2-10.png)
 
-Ahora para acabar con el laboratorio solo nos queda buscar la **flag.txt** en la C: usando la consola.
+Ahora para acabar con el laboratorio solo nos queda buscar la **flag.txt** en la C: usando la consola que nos da Metasploit.
 
 
 
