@@ -100,7 +100,107 @@ Algunas herramientas que usaremos en este modulo son:
 - davtest: Para escanear, autentificar y explotar un WebDAV server.
 - cadaver: Nos permite identificarnos en el WebDAV y realizar acciones con los ficheros (Descargar, subir, modificar...).
 
+---
+---
+
 #### Laboratorio WebDAV
+
+En este laboratorio ya nos dan el password y la ip del servidor, pero igualmente a mi me gusta hacer todo el proceso para practicar.
+
+Aun así veremos que con las wordlist que tenemos no conseguiremos sacar el password, por lo que usaremos la info que nos dan para no perder tiempo con wordlist mas extensas.
+
+Lo primero será hacer un nmap del objetivo con los scripts por defecto para que nos otorgue informacion sobre los servicios que estan corriendo y que puertos tiene abiertos.
+
+![nmap-lab-webdav](img/webdav-lab-1.png)
+![nmap-lab-webdav](img/webdav-lab-2.png)
+
+En el resultado podemos detectar que hay un servicio de Windows IIS corriendo en el puerto 80.
+
+Si lo abrimos en el navegador podemos ver que hay alojada una pagina web:
+
+![nmap-lab-webdav](img/webdav-lab-3.png)
+
+Esto es una web generica creada para practicar pentesting y se usa para ver varias vulnerabilidades, pero por el momento eso no nos interesa.
+
+Vamos a pasar a enumerar directorios de esta web a ver si vemos algo interesante.
+
+Para ello usaremos el script de Nmap **http-enum**
+
+![nmap-lab-webdav](img/webdav-lab-4.png)
+![nmap-lab-webdav](img/webdav-lab-5.png)
+
+El resultado nos devuelve que hay un directorio de WebDAV y ademas el mismo script nos advierte que es una carpeta interesante.
+
+Ademas vemos que no estamos autorizados a ver su contenido, esto es porque requiere un usuario y contraseña.
+
+Si abrimos este directorio en el navegador verificaremos que nos pide un login:
+
+![nmap-lab-webdav](img/webdav-lab-6.png)
+
+Aqui podemos aplicar fuerza bruta con Hydra usando las wordlist incluidas en Kali (En este caso no lo conseguiremos y usaremos la info de login que nos dan en laboratorio):
+
+![nmap-lab-webdav](img/webdav-lab-7.png)
+
+De argumentos le pasamos la lista de usuarios y una lista de passwords, ademas le decimos a que IP estamos apuntando.
+
+Con **http-get** le decimos en que directorio apuntamos para loguearnos.
+
+En este caso no obtenemos resultados asi que usaremos la contraseña y usuario que nos proporcionan en la info del laboratorio para no perder tiempo probando con listas mas completas que podrían llevarnos mucho rato.
+
+Una vez loguados por la web podemos ver el contenido del WebDAV:
+
+![nmap-lab-webdav](img/webdav-lab-8.png)
+
+Ahora vamos a intentar explotar alguna de las vulnerabilidades de este servicio.
+
+Primero vamos a obtener algo de informacion de el con la herramienta **davtest**:
+
+Le decimos que nos enumere la URL del webdav y le proporcionamos un usuario y una contraseña:
+
+![nmap-lab-webdav](img/webdav-lab-9.png)
+![nmap-lab-webdav](img/webdav-lab-10.png)
+![nmap-lab-webdav](img/webdav-lab-11.png)
+
+En los resultados de esta execucion podemos ver que las pruebas para subir archivos han salido todas positivas (SUCCEED) y que las pruebas de ejecucion han salido positivas **txt, html y asp**.
+
+Con esta informacion nos podemos plantear subir una **webshell de asp** de las que vienen incluidas en Kali con el objetivo de conseguir una forma de ejecutar comandos.
+
+Para trastear con los archivos del webDAV usaremos la herramienta **cadaver**:
+
+![nmap-lab-webdav](img/webdav-lab-12.png)
+
+Esta aplicacion nos dara una consola (algo parecido a la de FTP) que nos permitirá trastear con los ficheros del WebDAV.
+
+![nmap-lab-webdav](img/webdav-lab-13.png)
+
+Una vez conectados vamos a proceder a subir una webshell de asp de las que tenemos en Kali:
+
+![nmap-lab-webdav](img/webdav-lab-14.png)
+
+Una vez que se nos ha subido podremos verla desde la pagina web si actualizamos:
+
+![nmap-lab-webdav](img/webdav-lab-15.png)
+
+Si le clicamos y se ejecuta tendremos una webshell operativa en el servidor desde la cual podamos ejecutar comandos:
+
+![nmap-lab-webdav](img/webdav-lab-16.png)
+
+Una vez hemos obtenido esta webshell ya podemos ir en busca de la **flag** del laboratorio:
+
+![nmap-lab-webdav](img/webdav-lab-17.png)
+![nmap-lab-webdav](img/webdav-lab-18.png)
+
+El resultado del comando se nos junta con la IP, asi que la flag empieza donde acaba la IP del servidor.
+
+Con esto el laboratorio ya estaría resuelto.
+
+
+
+
+
+
+
+
 
 
 
