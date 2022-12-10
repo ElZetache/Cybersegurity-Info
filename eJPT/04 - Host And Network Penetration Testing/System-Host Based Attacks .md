@@ -2,8 +2,22 @@
 # Indice
 
 
+- [Introduction To System/Host Based Attacks](#introduction-to-systemhost-based-attacks)
+- [Windows Vulnerabilities](#windows-vulnerabilities)
+  - [Overview of Windows Vulnerabilities](#overview-of-windows-vulnerabilities)
+    - [Versiones](#versiones)
+    - [Tipos de Vulnerabilidades de Windows](#tipos-de-vulnerabilidades-de-windows)
+  - [Frequently Exploited Windows Services](#frequently-exploited-windows-services)
+- [Exploiting Windows Vulnerabilities](#exploiting-windows-vulnerabilities)
+  - [Exploiting Microsoft IIS WebDAV](#exploiting-microsoft-iis-webdav)
+    - [Microsoft IIS](#microsoft-iis)
+    - [WebDAV](#webdav)
+      - [WebDAV exploitation](#webdav-exploitation)
+      - [Laboratorio WebDAV](#laboratorio-webdav)
+      - [Laboratorio WebDAV con Metasploid (reverse shell)](#laboratorio-webdav-con-metasploid-reverse-shell)
 
-
+---
+---
 # Introduction To System/Host Based Attacks
 
 Los ataques basados en Sytem/Host son ataques que tienen como objetivo un sistema o host que esta corriendo un sistema operativo especifico, como por ejemplo Windows o Linux.
@@ -97,8 +111,8 @@ Para vulnerar un servicio **WebDAV** podemos seguir los siguientes pasos:
 
 Algunas herramientas que usaremos en este modulo son:
 
-- davtest: Para escanear, autentificar y explotar un WebDAV server.
-- cadaver: Nos permite identificarnos en el WebDAV y realizar acciones con los ficheros (Descargar, subir, modificar...).
+- davtest: Para escanear, autentificar y explotar un WebDAV server. [uso](#davtest)
+- cadaver: Nos permite identificarnos en el WebDAV y realizar acciones con los ficheros (Descargar, subir, modificar...). [uso](#cadaver)
 
 ---
 ---
@@ -153,6 +167,9 @@ Una vez loguados por la web podemos ver el contenido del WebDAV:
 
 Ahora vamos a intentar explotar alguna de las vulnerabilidades de este servicio.
 
+##### (davtest)
+
+
 Primero vamos a obtener algo de informacion de el con la herramienta **davtest**:
 
 Le decimos que nos enumere la URL del webdav y le proporcionamos un usuario y una contraseña:
@@ -164,6 +181,8 @@ Le decimos que nos enumere la URL del webdav y le proporcionamos un usuario y un
 En los resultados de esta execucion podemos ver que las pruebas para subir archivos han salido todas positivas (SUCCEED) y que las pruebas de ejecucion han salido positivas **txt, html y asp**.
 
 Con esta informacion nos podemos plantear subir una **webshell de asp** de las que vienen incluidas en Kali con el objetivo de conseguir una forma de ejecutar comandos.
+
+##### (cadaver)
 
 Para trastear con los archivos del webDAV usaremos la herramienta **cadaver**:
 
@@ -194,7 +213,7 @@ El resultado del comando se nos junta con la IP, asi que la flag empieza donde a
 
 Con esto el laboratorio ya estaría resuelto.
 
-
+#### Laboratorio WebDAV con Metasploid (reverse shell)
 
 
 
