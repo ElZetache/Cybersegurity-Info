@@ -260,6 +260,10 @@ Acto seguido si todo ha ido bien veremos como nuestra maquina recibe la conexion
 
 Ahora para acabar con el laboratorio solo nos queda buscar la **flag.txt** en la C: usando la consola que nos da Metasploit.
 
+- Tambien podemos automatizar este proceso con el modulos de Metasploit `exploit/windows/iis/iis_webdav_upload_asp`, en la imagen podemos ver que informacion tenemos que rellenar y como el hace todo el proceso de subir el archivo, abrir la escucha, ejecutarlo y nos da la consola resultante (ademas limpia el archivo del servidor para no hacer ruido):
+![nmap-lab-webdav](img/webdav-lab-2-11.png)
+
+
 
 
 
