@@ -102,7 +102,7 @@ Este servicio se configura encima de un servidos IIS.
 
 El tipo de identificacion en un WebDAV es a trabes de usuario y contraseña.
 
-#### WebDAV exploitation
+#### **WebDAV exploitation**
 
 Para vulnerar un servicio **WebDAV** podemos seguir los siguientes pasos:
 1. Enumerar el Hosta para ver si tiene o no alojado un **WebDAV**, y tambien obtener informacion de la version y de si esta corriendo en un IIS o en un apache por ejemplo.
@@ -117,7 +117,7 @@ Algunas herramientas que usaremos en este modulo son:
 ---
 ---
 
-#### Laboratorio WebDAV
+#### **Laboratorio WebDAV**
 
 En este laboratorio ya nos dan el password y la ip del servidor, pero igualmente a mi me gusta hacer todo el proceso para practicar.
 
@@ -167,7 +167,7 @@ Una vez loguados por la web podemos ver el contenido del WebDAV:
 
 Ahora vamos a intentar explotar alguna de las vulnerabilidades de este servicio.
 
-##### (davtest)
+##### **(davtest)**
 
 
 Primero vamos a obtener algo de informacion de el con la herramienta **davtest**:
@@ -182,7 +182,7 @@ En los resultados de esta execucion podemos ver que las pruebas para subir archi
 
 Con esta informacion nos podemos plantear subir una **webshell de asp** de las que vienen incluidas en Kali con el objetivo de conseguir una forma de ejecutar comandos.
 
-##### (cadaver)
+##### **(cadaver)**
 
 Para trastear con los archivos del webDAV usaremos la herramienta **cadaver**:
 
@@ -216,7 +216,7 @@ Con esto el laboratorio ya estaría resuelto.
 ---
 ---
 
-#### Laboratorio WebDAV con Metasploid (reverse shell)
+#### **Laboratorio WebDAV con Metasploid (reverse shell)**
 
 Este laboratorio consiste de una maquina parecida a la anterior con la diferencía de que esta bloquea alguna de las ejecuciones especificas por **.asp**, por lo que no nos permite trabajar con una webshell.
 
@@ -263,6 +263,11 @@ Ahora para acabar con el laboratorio solo nos queda buscar la **flag.txt** en la
 - Tambien podemos automatizar este proceso con el modulos de Metasploit `exploit/windows/iis/iis_webdav_upload_asp`, en la imagen podemos ver que informacion tenemos que rellenar y como el hace todo el proceso de subir el archivo, abrir la escucha, ejecutarlo y nos da la consola resultante (ademas limpia el archivo del servidor para no hacer ruido):
 ![nmap-lab-webdav](img/webdav-lab-2-11.png)
 
+### SMB
+
+[Para ver informacion sobre SMB podeis ir a esta parte de la teoria.](../02%20-%20Assessment%20Methodologies/02%20-%20Assesment%20Methodologies-Enumeration.md#SMB)
+
+#### **Exploiting SMB with PsExec**
 
 
 
