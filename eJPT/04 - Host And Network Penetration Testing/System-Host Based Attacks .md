@@ -269,6 +269,37 @@ Ahora para acabar con el laboratorio solo nos queda buscar la **flag.txt** en la
 
 #### **Exploiting SMB with PsExec**
 
+El servidor SMB tiene dos niveles de autencificacion:
+- **User Authentication**: Cuando los usuarios se deben autentificar para acceder a un servidor SMB.
+- **Share Authentication**: Cuando los usuarios se deben auntentificar para acceder a un cierto recurso restringido del servidor.
+
+- **PsExec**:
+    - Es un substituto ligero de telnet desarrollado por Microsoft que permite executar procesos de forma remota en sistemas Windows usando cualquier credencial de usuario.
+    - La autentificacion de PsExec se hace via SMB
+
+Para usar PsExec para ganar acceso a un objetivo Windows necessitamos identificar cuantas con sus respectivos passwords, una de las formas mas comunes para lograr esto es via brute-force.
+
+- *Podemos hacer fuerza bruta apuntando solo a cuentas comunes que pueden existir en Windows para mejorar el rendimiento, por ejemplo al usuario Administrador*
+
+#### **Laboratorio: Exploiting SMB with PsExec**
+
+Vamos a proceder a explotar una maquina usando PsExec, primero lo haremos de una forma mas manual y luego la automatizada con metasplot. Pasos:
+
+1. Con Nmap echamos un vistazo a los puertos de el host objetivo, haremos un ``nmap 10.2.10.170 -sV -sC ``para que nos devuelva informacion general de lo que hay en los puertos y sus versiones: ![psexec-lab](img/smb-psexec-lab-1.png)
+
+2. Una vez que hemos detectado que hay servidores SMB en marcha en el puerto 445 nuestro objetivo es averiguar unas credenciales, para hacer esto podemos utilizar fuerza bruta.
+[Aqui podemos ver algunas formas de hacerlo](../02%20-%20Assessment%20Methodologies/02%20-%20Assesment%20Methodologies-Enumeration.md#smb-dictionary-attack). Yo voy a probar de hacerlo con Metasploit utilizando las wordlist incluidas common_users.txt y unix_passwords.txt. ![psexec-lab](img/smb-psexec-lab-2.png) Como podemos ver en la imagen hemos detectado varias coincidencias, entre las cuales unas credenciales de **administrador** que son las que usaremos, ya que seguramente sean las que tienen mas privilegios.
+
+3. Ahora para conseguir una consola con SMB usaremos **PsExec**, teniendo credenciales solo hemos de ejecutar `psexec.py Administrator@10.2.19.170 cmd.exe` informando que tipo de consola queremos conseguir, nos pedirá la contraseña y ya estaremos dentro: ![psexec-lab](img/smb-psexec-lab-3.png)
+
+4. El paso 3 tambien lo podemos hacer desde metasploit en el modulo ``exploit/windows/smb/psexec`` y conseguiremos una consola tipo meterpreter, pero este metodo es mas invasivo.
+
+5. Una vez hemos logrado acceso ya solo nos queda buscar la flag para resolver el laboratorio, normalmente esta en la raiz: ![psexec-lab](img/smb-psexec-lab-4.png)
+
+
+
+
+
 
 
 
