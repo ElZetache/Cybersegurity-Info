@@ -292,7 +292,7 @@ Vamos a proceder a explotar una maquina usando PsExec, primero lo haremos de una
 
 3. Ahora para conseguir una consola con SMB usaremos **PsExec**, teniendo credenciales solo hemos de ejecutar `psexec.py Administrator@10.2.19.170 cmd.exe` informando que tipo de consola queremos conseguir, nos pedirá la contraseña y ya estaremos dentro: ![psexec-lab](img/smb-psexec-lab-3.png)
 
-4. El paso 3 tambien lo podemos hacer desde metasploit en el modulo ``exploit/windows/smb/psexec`` y conseguiremos una consola tipo meterpreter, pero este metodo es mas invasivo.
+4. El paso 3 tambien lo podemos hacer desde metasploit en el modulo ``exploit/windows/smb/psexec`` y conseguiremos una consola tipo meterpreter, pero este metodo es mas invasivo y tenemos que tener mas cuidado ya que el payload lo podría detectar algun antivirus.
 
 5. Una vez hemos logrado acceso ya solo nos queda buscar la flag para resolver el laboratorio, normalmente esta en la raiz: ![psexec-lab](img/smb-psexec-lab-4.png)
 
