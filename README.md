@@ -15,6 +15,9 @@
     - [Metasploit](https://docs.metasploit.com/)
     - [Hydra](https://github.com/vanhauser-thc/thc-hydra)
     - [Nessus](https://docs.tenable.com/nessus/10_4/Content/GetStarted.htm)
+    - Configuraciones terminal
+      - [LSD ls mejorado](https://github.com/Peltoche/lsdsudo)
+      - [BAT cat mejorado](https://github.com/sharkdp/bat)
     
 
 ## Paginas web:
