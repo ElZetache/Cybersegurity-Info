@@ -5,7 +5,13 @@
   <img witdh="100px" height="100px" src="img/zhacker.gif">  
 </p>
 
-# INDICE 
+# INDICE
+
+- [Documentacion Herramientas mas usadas](#documentacion-herramientas-mas-usadas)
+- [Paginas web](#paginas-web)
+- [Repositorios utiles](#repositorios-utiles)
+- [eJPT](#ejpt)
+
 ---
 
 ## Documentacion Herramientas mas usadas
@@ -22,7 +28,7 @@
       - [Powerlevel10k - Tema para ZSH -](https://github.com/romkatv/powerlevel10k)
     
 
-## Paginas web:
+## Paginas web
 - *Estos es un recopilatorio de paginas con informacion o utilidades utiles que voy encontrando.*
     - [Editor de hexadecimal](https://hexed.it/)
     - [Exploit DB - Offensive security](https://www.exploit-db.com/)
@@ -56,6 +62,7 @@
     - [Apuntes que comparten Sanyam y Juned del curso OSCP](https://oscpnotes.infosecsanyam.in/My_OSCP_Preparation_Notes.html)
     - [BugBounty INFO](https://github.com/EdOverflow/bugbounty-cheatsheet)
     - [Cyber Chef](https://github.com/gchq/CyberChef)
+
 ---
 ---
 
