@@ -298,6 +298,8 @@ Vamos a proceder a explotar una maquina usando PsExec, primero lo haremos de una
 ---
 #### ****Exploiting Windows MS17-010 SMB Vulnerability (EternalBlue)****
 
+- [Informacion sobre EternalBlue](../02%20-%20Assessment%20Methodologies/03%20-%20Assesment%20Methodologies-Vulnerability-Assessment.md#eternalblue)
+
 
 
 
