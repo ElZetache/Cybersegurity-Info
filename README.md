@@ -53,6 +53,7 @@
       - [Blog de tarlogic](https://www.tarlogic.com/es/blog)
         - [Entrada sobre OWASP](https://www.tarlogic.com/es/blog/metodologia-owasp/)
       - [Blog de Chema Alonso](https://www.elladodelmal.com/)
+    - [Formacion Centro Criptologico Nacional](https://angeles-elearning.ccn-cert.cni.es/)
 
 ---
 ---

