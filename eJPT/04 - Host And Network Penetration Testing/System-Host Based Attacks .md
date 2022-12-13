@@ -266,7 +266,7 @@ Ahora para acabar con el laboratorio solo nos queda buscar la **flag.txt** en la
 ### SMB
 
 [Para ver informacion sobre SMB podeis ir a esta parte de la teoria.](../02%20-%20Assessment%20Methodologies/02%20-%20Assesment%20Methodologies-Enumeration.md#SMB)
-
+---
 #### **Exploiting SMB with PsExec**
 
 El servidor SMB tiene dos niveles de autencificacion:
@@ -280,7 +280,7 @@ El servidor SMB tiene dos niveles de autencificacion:
 Para usar PsExec para ganar acceso a un objetivo Windows necessitamos identificar cuantas con sus respectivos passwords, una de las formas mas comunes para lograr esto es via brute-force.
 
 - *Podemos hacer fuerza bruta apuntando solo a cuentas comunes que pueden existir en Windows para mejorar el rendimiento, por ejemplo al usuario Administrador*
-
+---
 #### **Laboratorio: Exploiting SMB with PsExec**
 
 Vamos a proceder a explotar una maquina usando PsExec, primero lo haremos de una forma mas manual y luego la automatizada con metasplot. Pasos:
@@ -295,6 +295,8 @@ Vamos a proceder a explotar una maquina usando PsExec, primero lo haremos de una
 4. El paso 3 tambien lo podemos hacer desde metasploit en el modulo ``exploit/windows/smb/psexec`` y conseguiremos una consola tipo meterpreter, pero este metodo es mas invasivo y tenemos que tener mas cuidado ya que el payload lo podría detectar algun antivirus.
 
 5. Una vez hemos logrado acceso ya solo nos queda buscar la flag para resolver el laboratorio, normalmente esta en la raiz: ![psexec-lab](img/smb-psexec-lab-4.png)
+---
+#### ****Exploiting Windows MS17-010 SMB Vulnerability (EternalBlue)****
 
 
 
