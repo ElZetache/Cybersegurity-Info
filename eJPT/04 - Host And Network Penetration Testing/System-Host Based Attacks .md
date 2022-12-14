@@ -323,7 +323,7 @@ Para automatizar esto con metasploit solo tenemos que buscar el modulo de exploi
 
 ---
 
-### RDP 
+## RDP 
 **Remote Desktop Protocol**
 - Es un protocolo de escritorio remoto desarrollado por microsoft con iinterfaz grafica.
 
@@ -333,7 +333,7 @@ Para automatizar esto con metasploit solo tenemos que buscar el modulo de exploi
 
 ---
 
-#### **Lab: Windows: Insecure RDP Service**
+### **Lab: Windows: Insecure RDP Service**
 
 Vamos a probar de ganar acceso a un servidor que esta corriendo este servicio via fuerza-bruta:
 
@@ -349,11 +349,43 @@ Vamos a probar de ganar acceso a un servidor que esta corriendo este servicio vi
 
 ---
 
-#### **Exploiting Windows CVE-2019-0708 RDP Vulnerability (BlueKeep)**
+### **Exploiting Windows CVE-2019-0708 RDP Vulnerability (BlueKeep)**
 
+Antes de empezar con el laboratorio es necessario leer algo de información sobre [BlueKeep CVE-2019-0708](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0708).
 
+Es una vulnerabilidad que afecta a ciertas versiones de RDP y que permite acceder a partes de la memoria del kernel para ejecutar codigo de forma remota.
 
+Microsoft hizo un parche para arrehlar esta vulnerabilidad el 14 de Mayo de 2019.
 
+Por internet se encuentran muchos exploits para esta vulnerabilidad, pero hay que ir con cuidado porque hay algunas que no funcionan como querriamos.
+
+Tambien se puede explotar via modulos de **Metasploit**, que es la que vamos a hacer ahora.
+
+Proceso para explotar la vulnerabilidad con **Metasploit**:
+
+1. Primero de todo hacemos un LDAP para ver que servicios esta corriendo: ![rdp-lab](img/rdp-lab-2.1.png)
+
+2. Despues verificaremos si el servicio es vulnerable con el modulo de **Metasploit** `auxiliary/scanner/rdp/cve_2019_0708_bluekeep`: ![rdp-lab](img/rdp-lab-2.2.png)
+
+3. Una vez que sepamos que es vulnerable usaremos el modulo `exploit/windows/rdp/cve_2019_0708_bluekeep_rce` para conseguir una consola tipo **meterpreter**, una particularidad de este modulo es que le tendremos que decir de que tipo es nuestro objetivo de la siguiente forma: ![rdp-lab](img/rdp-lab-2.3.png) Una vez configurado esto ya podremos ejecutar el exploit: ![rdp-lab](img/rdp-lab-2.4.png) 
+
+**Con este tipo de exploits que atacan al kernel tenemos que tener mucho cuidado cuando hagamos auditorias, porque pueden llegar a romper la maquina objetivo.**
+
+---
+
+## WinRM
+
+- Es un servicio de Windows que no viene activado por defecto, es un protocolo para administrar remotamente que trabaja sobre HTTP(S).
+
+- Por defecto funciona en los puertos 5985 y 5986.
+
+Para autentificarse en WinRM puede ser via usuario+password o usuario+hash.
+
+Se puede usar una utilidad llamada `crackmapexec` para realizar una hacer fuerza bruta en WinRM para conseguir usuarios y contraseñas para ejecutar algunos comandos.
+
+Tambien podriamos utilizar `evil-winrm`, que es un script de ruby que nos otorga directamente una command shell.
+
+### Lab: WinRM
 
 
 
