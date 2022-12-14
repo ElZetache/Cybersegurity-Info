@@ -442,6 +442,8 @@ Para realizar unas pruebas sobre esto usaremos un par de herramientas:
   - Windows-Kernel-Exploits: Es una coleccion de exploits para el Kernel de Windoes ordenados por CVE:
     - [GitHub](https://github.com/SecWiki/windows-kernel-exploits)
 
+---
+
 #### Proceso: Windows Kernel Exploitation
 
 En la demostracion partimos de un objetivo en el que hemos logrado acceso con un usuario que tiene pocos privilegios: ![Privilege Escalation](img/privilege-escalation-demo-1.png)
@@ -452,7 +454,22 @@ En la demostracion partimos de un objetivo en el que hemos logrado acceso con un
 
 Como podemos comprobar **metasploit** automatiza todo este proceso haciendolo bastante sencillo, vamos a probar de hacerlo de una forma un poco mas manual:
 
-1.  18:09
+1. Primero de todo, si miramos la info del [Github de Windows-Exploit-Suggester](https://github.com/AonCyberLabs/Windows-Exploit-Suggester) veremos que necesitamos la informacion que devuelve el sysinfo para ejecutarlo, para conseguirla conseguiremos una shell con meterpreter y ejecutaremos el comando: ![Privilege Escalation](img/privilege-escalation-demo-5.png) El resultado del comando lo guardaremos en un txt en nuestro host.
+
+2. Despues nos vamos al directorio donde nos hayamos descargado el repositorio para poder ejecutar el script de python. Ejecutaremos varios comandos:
+    1. `./windows-exploit-suggester.py --update` --> esto nos va a generar un fichero **.xls** con una base de datos de vulnerabilidades que usaremos en el siguiente comando.
+
+    2. `./windows-exploit-suggester.py --database 2021-12-26-mssb.xls --systeminfo win7.txt` --> con la base de datos que hemos generado y el txt que hemos copiado previamente.
+Esto nos devolverá una lista de vulnerabilidades de nuestro Windows. ![Privilege Escalation](img/privilege-escalation-demo-6.png) 
+
+3. Si buscamos en el repositorio de [SecWiki](https://github.com/SecWiki/windows-kernel-exploits) la vulnerabilidad **MS16-135** (Que segun el retorno del comando anterior es un exploit que sirve para privilege escalation) encontraremos un .exe, este es el que descargaremos para usar: ![Privilege Escalation](img/privilege-escalation-demo-7.png) 
+
+4. Ahora usaremos meterpreter para subir el .exe descargado: ![Privilege Escalation](img/privilege-escalation-demo-8.png) 
+
+5. Una vez subido conseguiremos una shell con meterpreter para ejecutarlo: ![Privilege Escalation](img/privilege-escalation-demo-9.png) 
+
+6. Lo ejecutamos tal y como se muestra a continuacion y ya tendremos nuestra linea de comandos con privilegios de administrador: ![Privilege Escalation](img/privilege-escalation-demo-10.png) ![Privilege Escalation](img/privilege-escalation-demo-11.png) 
+
 
 
 
