@@ -321,10 +321,35 @@ Vamos a proceder a explotar una maquina usando PsExec, primero lo haremos de una
 
 Para automatizar esto con metasploit solo tenemos que buscar el modulo de exploit `exploit/windows/smb/ms17_010_etermalblue` y es practicamente automatico.
 
+---
 
+### RDP 
+**Remote Desktop Protocol**
+- Es un protocolo de escritorio remoto desarrollado por microsoft con iinterfaz grafica.
 
+- Este protocolo utiliza por defecto el puerto 3389 TCP.
 
+- Requiere de unas credenciales para loguearse, podemos hacer brute-force para conseguirlas y ganas acceso.
 
+---
+
+#### **Lab: Windows: Insecure RDP Service**
+
+Vamos a probar de ganar acceso a un servidor que esta corriendo este servicio via fuerza-bruta:
+
+1. Vamos a realizar un nmap de nuestro objetivo para listar los servicios que esta corriendo: ![rdp-lab](img/rdp-lab-1.png) Podemos ver que hay un certificado SSL en el puerto 3333, aunque no sea el puerto por defecto del RDP podría estar corriendo aqui. 
+
+2. Para comprobar si hay o no un servicio RDP corriendo en el puerto 3333 usaremos el modulo de metasploit `scanner/rdp/rdp_scanner` ![rdp-lab](img/rdp-lab-2.png) En el resultado podemos ver que nos devuelve positivo
+
+3. Una vez hemos verificado que hay un servicio RDP corriendo en el puerto 3333 podemos proceder a realizar un ejercicio de fuerza bruta, en este caso voy a utilizar la herramienta **Hydra**: `hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt rdp://10.2.21.142 -s 3333` ![rdp-lab](img/rdp-lab-3.png) Hemos tenido varias coincidencias de usuario-password, pero la que mas nos interesa es la de **Administrator**.
+
+4. Ahora que hemos obtenido unas credenciales que parecen ser de **administrator** nos vamos a loguear con ellas en el servicio untilizando `xfreerdp /u:administator /p:qwertyuiop /v:10.2.21.142:3333 `, nos saldrá un mensaje de que si confiamos en el certificado, le decimos que si y si todo esta bien obtendremos acceso: ![rdp-lab](img/rdp-lab-4.png)
+
+5. Ahora solo nos queda buscar la flag en el sistema de archivos: ![rdp-lab](img/rdp-lab-5.png) 
+
+---
+
+#### **Exploiting Windows CVE-2019-0708 RDP Vulnerability (BlueKeep)**
 
 
 
