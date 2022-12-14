@@ -15,6 +15,17 @@
       - [WebDAV exploitation](#webdav-exploitation)
       - [Laboratorio WebDAV](#laboratorio-webdav)
       - [Laboratorio WebDAV con Metasploid (reverse shell)](#laboratorio-webdav-con-metasploid-reverse-shell)
+  - [SMB](#smb) 
+    - [Exploiting SMB with PsExec](#exploiting-smb-with-psexec)
+    - [Laboratorio: Exploiting SMB with PsExec](#laboratorio-exploiting-smb-with-psexec)  
+    - [Exploiting Windows MS17-010 SMB Vulnerability (EternalBlue)**](#exploiting-windows-ms17-010-smb-vulnerability-eternalblue)
+    - [Laboratorio EternalBlue](#laboratorio-eternalblue)
+    - [Laboratorio EternalBlue (metasploit)](#laboratorio-eternalblue-metasploit)
+  - [RDP](#rdp)
+    - [Lab: Windows: Insecure RDP Service](#lab-windows-insecure-rdp-service)
+    - [Exploiting Windows CVE-2019-0708 RDP Vulnerability (BlueKeep)](#exploiting-windows-cve-2019-0708-rdp-vulnerability-bluekeep)
+  - [WinRM](#winrm)
+    - [Lab: WinRM](#lab-winrm)
 
 ---
 ---
@@ -386,6 +397,19 @@ Se puede usar una utilidad llamada `crackmapexec` para realizar una hacer fuerza
 Tambien podriamos utilizar `evil-winrm`, que es un script de ruby que nos otorga directamente una command shell.
 
 ### Lab: WinRM
+
+1. Primero de todo vamos a hacer un nmap para localizar servicios alojado en los puertos del objetivo: ![winrm-lab](img/winrm-lab-1.png) 
+
+2. Hemos detectado que en el puerto **5985** hay alojado un servicio, este es uno de los puertos por defecto de **WinRM**, asi que voy a lanzar algun script de nmap contra este puerto para sacar algo mas de informacion: ![winrm-lab](img/winrm-lab-2.png) Podemos ver que el servicio esta corriendo sobre un http. Aun asi quiero hacer unas comprobaciones mas para ver si es un WinRM, ejecuto una prueba rapida con metasploit para ver si acepta logins de WinRM: ![winrm-lab](img/winrm-lab-3.png)
+
+3. Ahora que ya sabemos que existe un servicion de WinRM en el objetivo vamos a usar `crackmapexec` para realizar un ejercicio de fuerza bruta 
+- `crackmapexec winrm  10.2.16.147 -u administrator -p /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt`, en la informacion del lab nos dicen de usar un fichero para usuarios, pero sabiendo que es Windows he decidido buscar directamente **administrator** ya que es un usuario que viene por defecto en estos sistemas y suele tener permisos, y ademas ahorramos mucho tiempo con la fuerza bruta, resultado: ![winrm-lab](img/winrm-lab-4.png)
+
+4. Una vez tenemos un usuario y una contraseña otra cosa que nos permite la aplicacion `crackmapexec` es ejecutar comandos con el atributo **-x**: ![winrm-lab](img/winrm-lab-5.png)
+
+5. Es una forma un poco tediosa si tubieramos que realizar alguna cosa mas compleja en el objetivo, asi que podemos usar el Script de ruby `evil-winrm`, que nos dara una shell directamente: ![winrm-lab](img/winrm-lab-6.png) 
+
+6. Como opcion adicional podemos conseguir una consola Meterpreter via `metasploit`: ![winrm-lab](img/winrm-lab-7.png)  ![winrm-lab](img/winrm-lab-8.png) 
 
 
 
