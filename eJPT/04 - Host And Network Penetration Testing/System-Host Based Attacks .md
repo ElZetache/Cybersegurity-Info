@@ -3,6 +3,9 @@
 
 
 - [Introduction To System/Host Based Attacks](#introduction-to-systemhost-based-attacks)
+
+## Windows
+
 - [Windows Vulnerabilities](#windows-vulnerabilities)
   - [Overview of Windows Vulnerabilities](#overview-of-windows-vulnerabilities)
     - [Versiones](#versiones)
@@ -18,7 +21,7 @@
   - [SMB](#smb) 
     - [Exploiting SMB with PsExec](#exploiting-smb-with-psexec)
     - [Laboratorio: Exploiting SMB with PsExec](#laboratorio-exploiting-smb-with-psexec)  
-    - [Exploiting Windows MS17-010 SMB Vulnerability (EternalBlue)**](#exploiting-windows-ms17-010-smb-vulnerability-eternalblue)
+    - [Exploiting Windows MS17-010 SMB Vulnerability (EternalBlue)](#exploiting-windows-ms17-010-smb-vulnerability-eternalblue)
     - [Laboratorio EternalBlue](#laboratorio-eternalblue)
     - [Laboratorio EternalBlue (metasploit)](#laboratorio-eternalblue-metasploit)
   - [RDP](#rdp)
@@ -411,11 +414,45 @@ Tambien podriamos utilizar `evil-winrm`, que es un script de ruby que nos otorga
 
 6. Como opcion adicional podemos conseguir una consola Meterpreter via `metasploit`: ![winrm-lab](img/winrm-lab-7.png)  ![winrm-lab](img/winrm-lab-8.png) 
 
+---
+---
 
+# Windows Privilege Escalation
+- Entendemos escalada de privilegios la accion de aprovechar vulnerabilidades o configuraciones erroneas en los sistemas para escalar nuestros permisos de un usuario a otro, normalmente para conseguir permisos de administrador.
+- Esto es muy util porque un alto porcentaje de las veces conseguiremos acceder a sistemas con usuarios que no tienen permisos para segun que cosas, por lo que hacer esta escalada será algo indispensable en cualquier test de penetracion.
+- Tener un buen conocimiento de como hacer estos procesos de **Privilege Escalation** nos marcara como un buen profesional dentro del pentesting.
+## Windows Kernel Exploits
+### ¿Que es el Kernel?
+Antes de empezar a hablar de exploits que atacan el **Kernel** debemos entender que es el **Kernel**_
+- El Kernel es un programa informatico que esta en el core de un sistema operativo, este tiene control total de cada recurso y del hardware del sistema. Actua como una capa de traduccion entre el hardware y el sofware facilitando la comunicacion entre ellos.
+- **Windows NT** es el Kernel que viene empaquetado con todas las versiones de **Microsoft Windows**, este actua como un Kernel tradicional exceptuando alguna excepcion. Este consiste de dos modos de opearacion que determinan el acceso al los recursos y el hardaware:
+  1. User Mode: Los programos ejecutados en este modo tienen acceso limitado a los recursos del sistema y a sus funcionalidades
+  2. Kernel Mode: Todo lo que se ejecute en este modo tiene acceso total a los recursos del sistema y a las funcionalidades, y se añade la funcionalidad de maejar el hardware y la memoria del sistema.
+### Windows Kernel Exploitation
+- El **Kernel** de windows tiene vulnerabilidades, estas se pueden aprovechar para ejecutar codigo en busqueda de realizar comandos con provilegios de administrador o de conseguir una **system shell**.
+- Estos procesos variarán dependiendo de la version de Windows.
+- La escala de privilegios de **Windows** es usual que siga dos pasos:
+  1. Identificar las vulnerabilidades del Kernel.
+  2. Descargar, compilar y transferir un exploit del Kernel al sistema objetivo.
 
+Para realizar unas pruebas sobre esto usaremos un par de herramientas:
+  - Windows-Exploit-Suggester: Es un script de Python que compara la base de datos de vulnerabilidades de Microsoft con el parche actual del objetivo para poder detectar posibles parches que falten para arreglar vulnerabilidades. 
+    - Tambien te notifica si hay exploits publicos o modulos de Metasploit para estas vulnerabilidades.
+    - [GitHub](https://github.com/AonCyberLabs/Windows-Exploit-Suggester)
+  - Windows-Kernel-Exploits: Es una coleccion de exploits para el Kernel de Windoes ordenados por CVE:
+    - [GitHub](https://github.com/SecWiki/windows-kernel-exploits)
 
+#### Proceso: Windows Kernel Exploitation
 
+En la demostracion partimos de un objetivo en el que hemos logrado acceso con un usuario que tiene pocos privilegios: ![Privilege Escalation](img/privilege-escalation-demo-1.png)
 
+1. Vamos a usar primero de todo un modulo de **Metasploit** que enumera las vulnerabilidades conocidas de un OS, el modulo es `post/multi/recon/local_exploit_suggester`, la unica opcion que tenemos que configurar es la de `session`, metasploit te permite tener diferentes sesiones activas de diferentes modulos, previamente de usar este modulo tenemos que tener una sesion activa con un `meterpreter` del host objetivo. Para crear una sesion de meterpreter ejecutamos `background` desde el, asi pasara a un segundo plano y ya podemos ir al modulo para enumerar: ![Privilege Escalation](img/privilege-escalation-demo-2.png) ![Privilege Escalation](img/privilege-escalation-demo-3.png) En las capturas vemos como nos devuelve una serie de vulnerabilidades y tambien algunos modulos con los que las podemos explotar.
+
+2. Usaremos uno de los modulos que nos ha devuelto al consulta anterior, concretamente esta vez usaremos el `exploit/windows/ms16_014_wmi_recv_notif`, el uso es muy sencillo, solo deberemos informar en que sesion de **meterpreter** queremos lanzar el exploit y a que puerto queremos que nos devuelva una reverse shell, una vez lanzado esperamos y si todo va bien nos devolverá un **meterpreter** con privilegios de administrador: ![Privilege Escalation](img/privilege-escalation-demo-4.png)
+
+Como podemos comprobar **metasploit** automatiza todo este proceso haciendolo bastante sencillo, vamos a probar de hacerlo de una forma un poco mas manual:
+
+1.  18:09
 
 
 
