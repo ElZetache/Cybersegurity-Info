@@ -314,6 +314,7 @@ Vamos a proceder a explotar una maquina usando PsExec, primero lo haremos de una
 
 - [Informacion sobre EternalBlue](../02%20-%20Assessment%20Methodologies/03%20-%20Assesment%20Methodologies-Vulnerability-Assessment.md#eternalblue)
 
+<<<<<<< Updated upstream
 
 #### **Laboratorio EternalBlue**
 
@@ -475,6 +476,11 @@ Esto nos devolverá una lista de vulnerabilidades de nuestro Windows. ![Privileg
 ## UAC (User Account Control)
 
 - Es una caracteristica de seguridad de windows introducida en Windows Vista que se usa para prevenir que se hagan cambios no autorizados.
+=======
+Para explotar esta vulnerabilidad tenemos varias opciones:
+- Metasploit: Existe un modulo para Metasploit para comprobar si una maquina es vulnerable y para conseguir una terminal `meterpreter`
+- [AutoBlue-MS17-010](https://github.com/3ndG4me/AutoBlue-MS17-010): Es un exploit para hacer el proceso mas manual. (Este es el que usaremos en el proximo laboratorio)
+>>>>>>> Stashed changes
 
 - Hace que cada cambio al sistema operativo requiera autorizacion, por lo que si el usuario que ejecuta estos cambios tiene permisos de administrador le saldrá un PopUp para que confirme la accion: ![UAC](img/uac-1.png) 
 
