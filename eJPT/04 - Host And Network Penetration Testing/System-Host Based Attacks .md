@@ -470,11 +470,62 @@ Esto nos devolverá una lista de vulnerabilidades de nuestro Windows. ![Privileg
 
 6. Lo ejecutamos tal y como se muestra a continuacion y ya tendremos nuestra linea de comandos con privilegios de administrador: ![Privilege Escalation](img/privilege-escalation-demo-10.png) ![Privilege Escalation](img/privilege-escalation-demo-11.png) 
 
+---
 
+## UAC (User Account Control)
 
+- Es una caracteristica de seguridad de windows introducida en Windows Vista que se usa para prevenir que se hagan cambios no autorizados.
 
+- Hace que cada cambio al sistema operativo requiera autorizacion, por lo que si el usuario que ejecuta estos cambios tiene permisos de administrador le saldrá un PopUp para que confirme la accion: ![UAC](img/uac-1.png) 
 
+- Si el usuario que va a realizar la accion que requiere de permisos no es del grupo de administradores el PopUp será un login para poner un usuario con permisos.
 
+- Como atacantes tendremos que hacer un ByPass de este sistema para poder ejecutar programas maliciosos con privilegios de administrador sin tener que pasar por el PopUp de consentimiento, ya que este le sale a todos los usuarios del grupo de administradores (exceptuando al usuario Administrator), y no lo podremos haceptar desde los comandos.
+
+### Bypassing UAC With UACMe
+
+- Para poder hacer un bypass necessitaremos primero de todo una cuenta de usuario que forme parte del grupo de administradores.
+- Hay varias maneras de hacer este ByPass dependerá de la version de Windows que este corriendo.
+
+La herramienta que usaremos será [UACme (GitHub)](https://github.com/hfiref0x/UACME):
+- Es una herramienta open source para escalada de privilegios que se puede usar para hacer el ByPass
+- El GitHUb contiene muy buena documentacion de una lista de metodos para hacer este procesos.
+- Permite executar Payloads con privilegios para abusar de la herramienta de Windows AutoElevate Tool.
+- El GitHub contiene Exploits.
+
+#### **Lab: Bypassing UAC With UACMe**
+
+1. Primero de todo vamos a enumerar que servicios estan corriendo en nuestra maquina: ![UAC](img/uac-2.png) Detectamos algunos servicios que podrían ser vulnerables:
+    1. Puerto 80 vemos que hay un http activo
+    2. Puerto 445, podría ser un SMB
+    3. Puerto 5985, podría estar corriendo un WebDAV vulnerable
+
+2. Voy a mirar primero a ver que encontramos en el servidor http accediendo a la IP por FireFox: ![UAC](img/uac-3.png) Encontramos en gestor de ficheros **HttpFileServer 2.3** desarrolado por Rejetto. 
+    - He mirado en la base de datos de [exploit-db](https://www.exploit-db.com/) y encuentro que este servicio tiene una vulnerabilidad que permite executar comandos con un modulo de metasploit (se tensa): ![UAC](img/uac-4.png)
+
+3. Vamos a acceder a nuestra consola de Metasploit a buscar el modulo para el exploit de **Rejetto**: ![UAC](img/uac-5.png) Informando solamente la IP victima ya nos devuelve un meterpreter.
+
+4. Nos movemos a una shell para obtener algo de informacion: ![UAC](img/uac-6.png)
+    - Vemos que hay dos usuarios admin y Administrator
+
+    ![UAC](img/uac-7.png)
+
+    - Nosotros somos admin, tiene pinta de que somos del grupo de administradores, aun asi al no ser administrator no podriamos ejecutar nada ya que la UAC nos estaría bloqueando. Antes de seguir confirmo que seamos del frupo de administradores:
+
+    ![UAC](img/uac-8.png)
+
+5. Ahora que ya sabemos que somos del grupo de administradores podemos probar de hacer un ByPass de la UAC con el objetivo de ejecutar una reverse shell como administrador y escalar privilegios.
+    
+6. Primero de todo me voy a abrir otra consola para generar un payload que enviaremos a la maquina victima (es el que ejecutaremos mas tarde con el ByPass): ![UAC](img/uac-9.png) Generamos un Payload de extension tipo **.exe**
+
+7. Ahora tenemos que informarnos de que modulo de UACMe nos puede servir para ejecutar nuestro payload saltandonos la UAC, para ello vamos al repositorio [UACme (GitHub)](https://github.com/hfiref0x/UACME). Si vamos a la seccion **Usage** veremos una lista de claves, una que sabemos que funciona para este caso es la 23, esta la usaremos como argumento cuando lo vayamos a ejecutar.
+    - Normalmente UACMe tiene que ser compilado, pero para ahorrarnos ese proceso el mismo laboratorio nos lo ha dejado compilado en el escritorio de nuestro host ![UAC](img/uac-10.png)
+
+8. Ahora con todo lo que tenemos lo que nos interesa hacer es subir nuestro payload y el executable de UACMe "Akagi64.exe" a nuestro objetivo, usaremos la meterpreter que tenemos abierta para subirlos a la carpeta C:\Temp (si no existe la generamos): ![UAC](img/uac-11.png)
+
+9. Ahora lo que haremos es ejecutar el UACMe que hemos subido para que nos ejecute nuestro payload saltandose la UAC, pero para esto antes tenemos que ponernos en escucha en otra consola: ![UAC](img/uac-12.png)
+
+10. Ahora nos abriremos la shell para ejecutar los archivos que hemos subido: 
 
 
 
