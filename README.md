@@ -33,6 +33,7 @@
 - *Estos es un recopilatorio de paginas con informacion o utilidades utiles que voy encontrando.*
     - [Editor de hexadecimal](https://hexed.it/)
     - [Exploit DB - Offensive security](https://www.exploit-db.com/)
+    - [Reverse Shell Generator](https://github.com/0dayCTF/reverse-shell-generator)
     - [Listado de certificados de CiberSeguridad](https://pauljerimy.com/security-certification-roadmap/)
     - [Web que explica lo que esta haciendo un comando de linux](https://explainshell.com/)
     - [Guia PTES](http://www.pentest-standard.org/index.php/PTES_Technical_Guidelines)
@@ -55,6 +56,7 @@
         - [Entrada sobre OWASP](https://www.tarlogic.com/es/blog/metodologia-owasp/)
       - [Blog de Chema Alonso](https://www.elladodelmal.com/)
     - [Formacion Centro Criptologico Nacional](https://angeles-elearning.ccn-cert.cni.es/)
+
 
 ---
 ---
