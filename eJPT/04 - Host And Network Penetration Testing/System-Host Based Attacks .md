@@ -531,13 +531,59 @@ La herramienta que usaremos será [UACme (GitHub)](https://github.com/hfiref0x/U
 
 9. Ahora lo que haremos es ejecutar el UACMe que hemos subido para que nos ejecute nuestro payload saltandose la UAC, pero para esto antes tenemos que ponernos en escucha en otra consola: ![UAC](img/uac-12.png)
 
-10. Ahora nos abriremos la shell para ejecutar los archivos que hemos subido: ![UAC](img/uac-13.png) Y si todo va bien obtendremos una consola en la terminal que estubieramos escuchando: 
+10. Ahora nos abriremos la shell para ejecutar los archivos que hemos subido: ![UAC](img/uac-13.png) Y si todo va bien obtendremos una consola en la terminal que estubieramos escuchando: ![UAC](img/uac-14.png)
+
+11. Ahora seguiremos estando conectados como admin, pero con una diferencia, que esta consola se esta ejecutando con derechos de administrador, por lo que si desde meterpreter ejecutamos ´ps´ podremos migrar a alguno de los servicios listados para obtener el usuario que lo esta ejecutando: ![UAC](img/uac-15.png) Vamos a migrar al lsass.exe que tiene **PID** 688, una vez migrado podemos ver como ya hemos conectado como **Administrador y maximos privilegios**:
+
+    ![UAC](img/uac-16.png)
+
+12. Ahora ya podemos adquirir la flag que nos piden, que en esta caso es el hash del admin. Usamos el comando `hashdump`: ![UAC](img/uac-17.png)
+
+---
+
+## Acces Token Impersonation
+
+- Los *Windows Acces Token* son un elemento core del proceso de autentificacion en Windows y los crea y maneja el servicio local Authority Subsystem Service (LSASS).
+
+- Es algo parecido a una cookie de una web, es un token que te permite mantener unos permisos sin tener que estarte autentificando cada vez que accedemos a un recurso.
+
+- Estos token son generados en el proceso **winlogon.exe** cada vez que un usuario se loguea e incluyen la identidad y los privilegios de este usuario. Una vez generados se añaden al processo **userinit.exe**, despues de esto todos los procesos que se inicien por el usuario obtienen una copia de este token y corren bajo sus privilegios.
 
 
+- Estos tokens se organizan en categorias basadas en el nivel de seguridad que se le asignan, habitualmente son asignados a una de estas des categorias:
+    1. **Impersonate-level**: Se generan en procesos no interactivos de windows, generalmente en servicios de sistema especificos o en domain logons.
+    2. **Delegate-level**: Se generan despues de un login interactivo, como puede ser un login de Windows o una conexion via RCP.
 
+- Los **impersonate-level** tokens se pueden usar como impersonate en en sistema local donde se generan pero no se pueden usar en sistemas externos.
+- Los **Delegate-level** tokens son el mayor agujero en este aspecto porque se pueden usar como si fueran **Impersonate-level** tokens en cualquier sistema, interno o externo.
 
+- El proceso para escalar privilegios via estos tokens dependerá de los privilegios que tenga asignado en usuario con el que hemos accedido.
 
+- Los permisos que necessitamos para hacer un **Acces Token Impersonation** attack con exito son los siguientes:
+    1. SeAssignPrimaryToken: Permite al usuario generar impersonate tokens.
+    2. SeCreateToken: Permite al usuario el crear un token arbitrario con privilegios de administracion.
+    3. SeImpersonatePrivilege: Permite al usuario crear un proceso bajo el contexto de seguridad de otro usuario, normalmente con privilegios de administrador.
 
+### Incognito (Meterpreter)
 
+Incognito es un modulo de meterpreter (originalmente era una aplicacion independiente), que permite Impersonate user tokens despues de una explotacion exitosa.
+
+- Podemos usar este modulo para ver una lista de los posibles tokens que podemos impersonar.
+
+### Lab:Acces Token Impersonation
+
+En este Laboratorio aprenderemos a escalar privilegios con los tokens que tenemos disponibles, en el futuro aprenderemos exploits para obtener mas tokens pero de momento no.
+
+1. Primero de todo y como en los demas laboratorios empezamos enumerando los servicios de los puertos de objetivo: ![Incognito](img/incognito-1.png) ![Incognito](img/incognito-2.png) Esto ya lo conocemos del laboratorio anterior, es un gestor de archivos desarollado por Rejjeto y que ademas tiene una vulnerabilidad explotable con un modulo incluido en Metasploid.
+
+2. Conseguimos una consola Meterpreter con el modulo correspondiente de Metasploit: ![Incognito](img/incognito-3.png) 
+3. Vamos a comprobar que privilegios tenemos con nuestro usuario actual (NT AUTHORITY\LOCAL SERVICE): ![Incognito](img/incognito-4.png) Vemos que es un usuario sin privilegios, aunque si que tenemos activado el permiso **SeImpersontePrivilege**, que esto nos permite crear procesos bajo los permisos de otro usuario.
+4. Vamos a usar lo descubierto en el punto 3 para con la aplicacion **Incognito**, impersonar otro usuario.
+    1. Primero de todo cargamos el modulo **incognito** en nuestro meterpreter: ![Incognito](img/incognito-5.png) 
+    2. Ahora podremos usar una funcion para listar los tokens disponibles `list_tokens`: ![Incognito](img/incognito-6.png) Parece que uno de los tokens que tenemos disponibles es el de **ATTACKDEFENSE\Administrator**
+    3. Vamos ahora a impersonar el usuario Administrator con el comando `impersonate_token "ATTACKDEFENSE\Administrator"`: ![Incognito](img/incognito-7.png) 
+    4. Una vez ejecutado el comando anterior podemos validar que ya estamos como Administrator, aun asi no nos deja ver nuestros privilegios, esto puede ser porque colgamos de un proceso de x32 bits, asi que es recomendable migrar a explorer si tenemos permisos. Una vez migrado ya podremos ver que hemos escalado privilegios: ![Incognito](img/incognito-8.png)
+    5. Tambien podemos comprabar que desde este usuario podemos ver mas tokens que antes: ![Incognito](img/incognito-9.png)
+    6. Teniendo el usuario Administrador ya podemos abrirnos una shell e ir a buscar la flag, que en este caso nos dicen que esta en su escritorio: ![Incognito](img/incognito-10.png)
 
 
