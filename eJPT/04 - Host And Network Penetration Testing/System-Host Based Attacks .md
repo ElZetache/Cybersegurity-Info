@@ -6,12 +6,12 @@
 
 ## Windows
 
-- [Windows Vulnerabilities](#windows-vulnerabilities)
+- ## [Windows Vulnerabilities](#windows-vulnerabilities)
   - [Overview of Windows Vulnerabilities](#overview-of-windows-vulnerabilities)
     - [Versiones](#versiones)
     - [Tipos de Vulnerabilidades de Windows](#tipos-de-vulnerabilidades-de-windows)
   - [Frequently Exploited Windows Services](#frequently-exploited-windows-services)
-- [Exploiting Windows Vulnerabilities](#exploiting-windows-vulnerabilities)
+- ## [Exploiting Windows Vulnerabilities](#exploiting-windows-vulnerabilities)
   - [Exploiting Microsoft IIS WebDAV](#exploiting-microsoft-iis-webdav)
     - [Microsoft IIS](#microsoft-iis)
     - [WebDAV](#webdav)
@@ -29,6 +29,17 @@
     - [Exploiting Windows CVE-2019-0708 RDP Vulnerability (BlueKeep)](#exploiting-windows-cve-2019-0708-rdp-vulnerability-bluekeep)
   - [WinRM](#winrm)
     - [Lab: WinRM](#lab-winrm)
+- ## [Windows Privilege Escalation](#windows-privilege-escalation)
+  - [Windows Kernel Exploits](#windows-kernel-exploits)
+    - [¿Que es el Kernel?](#que-es-el-kernel)
+    - [Windows Kernel Exploitation](#windows-kernel-exploitation)
+      - [Proceso: Windows Kernel Exploitation](#proceso-windows-kernel-exploitation)
+  - [UAC (User Account Control)](#uac-user-account-control)
+    - [Bypassing UAC With UACMe](#bypassing-uac-with-uacme)
+      - [**Lab: Bypassing UAC With UACMe**](#lab-bypassing-uac-with-uacme)
+  - [Acces Token Impersonation](#acces-token-impersonation)
+    - [Incognito (Meterpreter)](#incognito-meterpreter)
+    - [Lab:Acces Token Impersonation](#labacces-token-impersonation)
 
 ---
 ---
@@ -586,4 +597,5 @@ En este Laboratorio aprenderemos a escalar privilegios con los tokens que tenemo
     5. Tambien podemos comprabar que desde este usuario podemos ver mas tokens que antes: ![Incognito](img/incognito-9.png)
     6. Teniendo el usuario Administrador ya podemos abrirnos una shell e ir a buscar la flag, que en este caso nos dicen que esta en su escritorio: ![Incognito](img/incognito-10.png)
 
-
+---
+---
