@@ -56,6 +56,7 @@
         - [Entrada sobre OWASP](https://www.tarlogic.com/es/blog/metodologia-owasp/)
       - [Blog de Chema Alonso](https://www.elladodelmal.com/)
     - [Formacion Centro Criptologico Nacional](https://angeles-elearning.ccn-cert.cni.es/)
+    - [EMCO algunas herramientas gratuitas utiles](https://emcosoftware.com/)
 
 
 ---
