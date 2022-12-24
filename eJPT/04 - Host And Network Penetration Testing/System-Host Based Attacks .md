@@ -627,6 +627,8 @@ ADS o Alternate Data Streams es un atributo de los ficheros creados en una memor
     - NTLM
 - Despues de Windows Vista Windows desactivo LM y solo usa NTLM.
 
+---
+
 ### SAM Database
 
 - La base de datos SAM es un fichero de base de datos responsable de manejar los usuarios y las contraseñas de Windows, todos los passwords estan Hashed.
@@ -636,3 +638,28 @@ ADS o Alternate Data Streams es un atributo de los ficheros creados en una memor
 
 **Es importante recordar que para interactuar con LSASS necesitamos privilegios elevados**
 
+---
+
+### LM (LanMan)
+
+- Es el Hash utilizado en versiones anteriores a NT4.0.
+
+- Este protocolo se usa para Hashear passwords y se resume en los siguientes pasos:
+    - Se separa el password en dos cadenas de siete caracteres.
+    - Se convierten los caracteres a mayusculas (esto es porque no es keysensitive).
+    - Se hashea cada cadena por separado con el algoritmo DES.
+LM hash se considera un sistema debil y que se crackea facilmente, esto se debe a que no incluye salts (Salts son datos aleatorios que se usan para modificar el resultado del hash haciendolo unico).
+- El no uso de salts lo vuelve vulnerable a fuerza bruta y rainbow table attacks.
+![lm-hash](img/lm-hash-1.png)
+
+### NTLM (NTHash)
+
+- NTLM es una coleccion de protocolos de autentificacion que se utilizan en Windows para facilitar la autentificacion entre ordenadores. Esta autentificacion requiere de un usuario y un password.
+- De Windows Vista en adelante este es el processo de Hash que se utiliza.
+- Cuando se crea un usuario se utiliza el algoritmo de Hash MD4.
+- El algoritmo NTLM es mejor que el LM por lo siguiente:
+     - No divide el password en dos cadenas.
+     - es Case Sensitive.
+     - Se pueden usar simbolos y caracteres unicodes en la contraseña.
+- NTLM tampoco incluye salts.
+![ntlm](img/ntlm-hash-1.png)
