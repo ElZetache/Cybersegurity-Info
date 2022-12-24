@@ -599,3 +599,6 @@ En este Laboratorio aprenderemos a escalar privilegios con los tokens que tenemo
 
 ---
 ---
+
+## Windows File System Vulnerabilities
+### Alternate Data Streams
