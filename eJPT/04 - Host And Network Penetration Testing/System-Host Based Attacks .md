@@ -36,11 +36,12 @@
       - [Proceso: Windows Kernel Exploitation](#proceso-windows-kernel-exploitation)
   - [UAC (User Account Control)](#uac-user-account-control)
     - [Bypassing UAC With UACMe](#bypassing-uac-with-uacme)
-      - [**Lab: Bypassing UAC With UACMe**](#lab-bypassing-uac-with-uacme)
+      - [Lab: Bypassing UAC With UACMe](#lab-bypassing-uac-with-uacme)
   - [Acces Token Impersonation](#acces-token-impersonation)
     - [Incognito (Meterpreter)](#incognito-meterpreter)
     - [Lab:Acces Token Impersonation](#labacces-token-impersonation)
-
+- ## [Windows File System Vulnerabilities](#windows-file-system-vulnerabilities)
+  - [Alternate Data Streams](#alternate-data-streams)
 ---
 ---
 # Introduction To System/Host Based Attacks
@@ -600,5 +601,38 @@ En este Laboratorio aprenderemos a escalar privilegios con los tokens que tenemo
 ---
 ---
 
-## Windows File System Vulnerabilities
-### Alternate Data Streams
+# Windows File System Vulnerabilities
+## Alternate Data Streams
+
+ADS o Alternate Data Streams es un atributo de los ficheros creados en una memoria formateada en NTFS (Es el sistema de archivos que usa windows), este atributo sirve para hacer compatibles estos ficheros entre los sistemas de archivos de MacOS (HFS) y Windows (NTFS).
+
+- Un fichero creado en uns sistema NTFS normalmente contiene dos partes:
+    - Data Stream: Donde se contiene la informacion del fichero.
+    - Resource Stream: Donde normalmente estan los metadatos.
+
+- Como atacantes podemos añadir codigo malicioso en los archivos con atributos ADS para evadir la deteccion.
+    - Esto se puede realizar añadiendo codigo malicioso o executables en la parte de "Resource Stream" (Metadata) de un fichero legitimo.
+
+---
+---
+
+# Windows Credential Dumping
+## Windows Password Hashes
+
+- Windows almacena los "**Password Hashes**" localmente en la base de datos SAM (Secority Accounts Manager).
+- Hashing es un proceso por el cual a traves de un algoritmo de hash transformamos/encriptamos un valor, esto se hace con los passwords en Windows para evitar guardarlos en texto plano.
+- La autorizacion o verificacion de los usuarios de Windows las hace un processo llamado LSA (Local Security Authority).
+- Versiones superiores de Windows a Windows Server 2003 usan dos tipos de hashes:
+    - LM
+    - NTLM
+- Despues de Windows Vista Windows desactivo LM y solo usa NTLM.
+
+### SAM Database
+
+- La base de datos SAM es un fichero de base de datos responsable de manejar los usuarios y las contraseñas de Windows, todos los passwords estan Hashed.
+- Esta base de datos no se puede copiar mientras el sistema operativo esta corriendo.
+- El kernel (Windows NT) mantiene el fichero de SAM bloqueado, por esto los atacantes suelen atacar el processo LSASS con tecnicas de memoria para extraerlos.
+- En versiones modernas de Windows SAM esta encriptado con una SYSKEY.
+
+**Es importante recordar que para interactuar con LSASS necesitamos privilegios elevados**
+
