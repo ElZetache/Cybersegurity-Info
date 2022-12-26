@@ -702,6 +702,6 @@ LM hash se considera un sistema debil y que se crackea facilmente, esto se debe 
 
 10. Comprobamos que somos Administrator y ya podemos ir en busqueda de la flag: ![fichero-conf](img/fichero-conf-12.png) 
 
-097ab83639dce0ab3429cb0349493f60
+
 
 
