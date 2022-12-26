@@ -663,3 +663,45 @@ LM hash se considera un sistema debil y que se crackea facilmente, esto se debe 
      - Se pueden usar simbolos y caracteres unicodes en la contraseña.
 - NTLM tampoco incluye salts.
 ![ntlm](img/ntlm-hash-1.png)
+
+## Searching For Passwords In Windows Configuration Files 
+
+- Windows puede automatizar una serie de procesos, entre ellos el proceso de instalacion de el propio Windows, esto es util por ejemplo si quieres intalar windows en una red de varios ordenadores.
+
+- Para automatizar este proceso se crean una serie de ficheros de configuracion con la informacion necesario para la instalacion del SO.
+    - Estos ficheros pueden contener la contraseña del Administrador, entre otros datos.
+
+- Si este fichero no se elimina despues de acabar las instalaciones podría ser utilizado por los atacantes para obtener acceso, y con el no tendrían ni siquiera que utilizar ningun exploit, pues obtendrían directamente las claves de acceso para acceder de forma remota.
+
+- La utilidad de instalacion desatendida de Windows normalmente utiliza uno de estos ficheros de configuracion dependiendo de la version, estas pueden contener los usuarios y contraseñas:
+    - C:\Windows\Panther\Unattend.xml
+    - C:\Windows\Panther\Autounattend.xml
+- Por seguridad las passwords en estos ficheros suele estar encriptado en base64 pero esto es muy facil de desencriptar por los atacantes.
+
+### Lab: Configuration Files
+
+1. Primero de todo vemos que el servidor windows es x64, por lo que vamos a generar un payload para ganar acceso, asi podremos buscar el archivo de configuraciones mas comodamente. (Sabiendo la ruta podriamos ir a buscarlo directamente, pero asi practicamos el crear un servidor de python web para descargar el payload en la victima) ![fichero-conf](img/fichero-conf-1.png)
+
+2. Ahora generamos un servidor http con el script de Python para subir el payload. Con el siguiente comando crearemos un servidor en el directorio actual: ![fichero-conf](img/fichero-conf-2.png)
+
+3. Una vez creado el servidor podremos descargar el archivo en la maquina windows con el comando de **CMD** **certutil**, nos movemos al escritorio y ejecutamos: ![fichero-conf](img/fichero-conf-3.png)
+
+4. Una vez descargamos y que ya lo tenemos en el escritorio podemos cerrar nuestro servidor http y preparar un multihandler, en este caso el payload lo habiamos cargado como `windows/x64/meerpreter/reverse_tcp` ![fichero-conf](img/fichero-conf-4.png)
+
+5. Ahora ejecutamos el payload que habiamos cargado en el servidor windows y nos creará la conexion: ![fichero-conf](img/fichero-conf-5.png) ![fichero-conf](img/fichero-conf-6.png)
+
+6. Ahora ya podemos usar el meterpreter para buscar el fichero podemos usar el comando `search` de meterpreter para encontrarlo, pero como sabemos el directorio donde suele estar iremos directamente para ahorrar tiempo: ![fichero-conf](img/fichero-conf-7.png) 
+
+7. Si buscamos dentro del fichero encontraremos la contraseña del administrados encriptada en base64 (me lo he descargado para que sea mas facil y abrirlo con **VIM**): ![fichero-conf](img/fichero-conf-8.png) ![fichero-conf](img/fichero-conf-9.png) 
+
+8. Para desencriptar la contraseña lo haremos en dos pasos:
+    1. Guardaremos la passwors en un fichero nuevo.
+    2. usamos el comando `base64` para desencriptarlo. ![fichero-conf](img/fichero-conf-10.png) 
+
+9. Ahora con el password que hemos obtenido podemos realizar un psexec, usaremos el comando de Python: ![fichero-conf](img/fichero-conf-11.png) 
+
+10. Comprobamos que somos Administrator y ya podemos ir en busqueda de la flag: ![fichero-conf](img/fichero-conf-12.png) 
+
+097ab83639dce0ab3429cb0349493f60
+
+
