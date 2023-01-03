@@ -11,6 +11,7 @@
 - [Paginas web](#paginas-web)
 - [Repositorios utiles](#repositorios-utiles)
 - [eJPT](#ejpt)
+- [Guia para OSCP](https://johnjhacking.com/blog/oscp-reborn-2023/)
 
 ---
 
